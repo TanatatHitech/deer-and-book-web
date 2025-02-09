@@ -1,0 +1,24 @@
+[
+    {
+        "name": "แผนการปลูกที่ 1",
+        "crop": {
+            "name": "ข้าวโพด",
+            "key": "corn"
+        },
+        "fertilizer": "16-16-16",
+        "fertilizerRound": "3",
+        "weedinfection": "ยากำจัดศัตรูพืช",
+        "weedinfectionRound": "1"
+    },
+    {
+        "name": "แผนการปลูกที่ 2",
+        "crop": {
+            "name": "ข้าวโพด",
+            "key": "corn"
+        },
+        "fertilizer": "16-16-16",
+        "fertilizerRound": "3",
+        "weedinfection": "ยากำจัดศัตรูพืชเข้มข้น",
+        "weedinfectionRound": "1"
+    }
+]

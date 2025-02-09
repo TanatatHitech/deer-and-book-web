@@ -1,0 +1,19 @@
+{
+    "rounds": [
+        {
+            "img": "/assets/crop/harvest-field/field1.png",
+            "round": 1,
+            "date": "2021-01-01"
+        },
+        {
+            "img": "/assets/crop/harvest-field/field2.png",
+            "round": 2,
+            "date": "2021-01-01"
+        },
+        {
+            "img": "/assets/crop/harvest-field/field3.png",
+            "round": 3,
+            "date": "2021-01-01"
+        }
+    ]
+}

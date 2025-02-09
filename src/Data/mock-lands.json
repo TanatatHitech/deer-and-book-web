@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Field A",
+        "tumbonId": 0,
+        "tumbon": {
+            "name": "123/456 หมู่ 7 ต.แม่แรม "
+        },
+        "amphureId": 0,
+        "amphure": {
+            "name": "อ.แม่ริม "
+        },
+        "provinceId": 0,
+        "province": {
+            "name": "จ.เชียงใหม่"
+        },
+        "latitude": 18.787747,
+        "longitude": 98.993128
+    },
+    {
+        "id": 2,
+        "name": "Field B",
+        "tumbonId": 0,
+        "tumbon": {
+            "name": "123/456 หมู่ 7 ต.แม่แรม"
+        },
+        "amphureId": 0,
+        "amphure": {
+            "name": "อ.แม่ริม"
+        },
+        "provinceId": 0,
+        "province": {
+            "name": "จ.เชียงใหม่"
+        },
+        "latitude": 18.787747,
+        "longitude": 98.993128
+    },
+    {
+        "id": 3,
+        "name": "Field C",
+        "tumbonId": 0,
+        "tumbon": {
+            "name": "123/456 หมู่ 7 ต.แม่แรม"
+        },
+        "amphureId": 0,
+        "amphure": {
+            "name": "แม่ริม"
+        },
+        "provinceId": 0,
+        "province": {
+            "name": "เชียงใหม่"
+        },
+        "latitude": 18.787747,
+        "longitude": 98.993128
+    },
+    {
+        "id": 4,
+        "name": "Field D",
+        "tumbonId": 0,
+        "tumbon": {
+            "name": "123/456 หมู่ 7 ต.แม่แรม"
+        },
+        "amphureId": 0,
+        "amphure": {
+            "name": "แม่ริม"
+        },
+        "provinceId": 0,
+        "province": {
+            "name": "เชียงใหม่"
+        },
+        "latitude": 18.787747,
+        "longitude": 98.993128
+    }
+]

@@ -1,0 +1,37 @@
+{
+    "bottomNav": {
+        "home": "หน้าหลัก",
+        "myLand": "แปลงของฉัน",
+        "cropPlanning": "เริ่มปลูก",
+        "notification": "แจ้งเตือน",
+        "profile": "โปรไฟล์"
+    },
+    "home": {},
+    "myLand": {
+        "title": "แปลงของฉัน"
+    },
+    "planLand": {
+        "title": "เริ่มการปลูก",
+        "landingTitle": "เริ่มการปลูก",
+        "landing": {
+            "add": "เพิ่มแปลง",
+            "findPlant": "ค้นหาพืช",
+            "plannedLand": "แปลงที่เริ่มปลูก"
+        },
+        "findPlant": {
+            "header": "ค้นหาพืชที่ต้องการปลูก",
+            "inputPlaceholder": "ค้นหาด้วยชื่อพืช"
+        },
+        "selectLand": {
+            "header": "ขั้นตอนที่ 1 : เลือกแปลงที่ต้องการปลูก",
+            "inputPlaceholder": "ค้นหาด้วยชื่อแปลง",
+            "filter": "ตัวกรอง",
+            "province": "จังหวัด",
+            "provincePlaceholder": "ค้นหาด้วยจังหวัด",
+            "amphure": "อำเภอ",
+            "amphurePlaceholder": "ค้นหาด้วยอำเภอ",
+            "tumbon": "ตำบล",
+            "tumbonPlaceholder": "ค้นหาด้วยตำบล"
+        }
+    }
+}

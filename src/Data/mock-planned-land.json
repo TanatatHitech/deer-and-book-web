@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Field A",
+        "crop": {
+            "name": "ข้าวโพด",
+            "key": "corn"
+        },
+        "tumbonId": 0,
+        "tumbon": {
+            "name": "แม่แรม"
+        },
+        "amphureId": 0,
+        "amphure": {
+            "name": "แม่ริม"
+        },
+        "provinceId": 0,
+        "province": {
+            "name": "เชียงใหม่"
+        },
+        "latitude": 18.787747,
+        "longitude": 98.993128
+    },
+    {
+        "name": "Field B",
+        "crop": {
+            "name": "ข้าวโพด",
+            "key": "corn"
+        },
+        "tumbonId": 0,
+        "tumbon": {
+            "name": "แม่แรม"
+        },
+        "amphureId": 0,
+        "amphure": {
+            "name": "แม่ริม"
+        },
+        "provinceId": 0,
+        "province": {
+            "name": "เชียงใหม่"
+        },
+        "latitude": 18.787747,
+        "longitude": 98.993128
+    },
+    {
+        "name": "Field C",
+        "crop": {
+            "name": "มันสำปะหลัง",
+            "key": "cassava"
+        },
+        "tumbonId": 0,
+        "tumbon": {
+            "name": "แม่แรม"
+        },
+        "amphureId": 0,
+        "amphure": {
+            "name": "แม่ริม"
+        },
+        "provinceId": 0,
+        "province": {
+            "name": "เชียงใหม่"
+        },
+        "latitude": 18.787747,
+        "longitude": 98.993128
+    },
+    {
+        "name": "Field D",
+        "crop": {
+            "name": "มันสำปะหลัง",
+            "key": "cassava"
+        },
+        "tumbonId": 0,
+        "tumbon": {
+            "name": "แม่แรม"
+        },
+        "amphureId": 0,
+        "amphure": {
+            "name": "แม่ริม"
+        },
+        "provinceId": 0,
+        "province": {
+            "name": "เชียงใหม่"
+        },
+        "latitude": 18.787747,
+        "longitude": 98.993128
+    }
+]

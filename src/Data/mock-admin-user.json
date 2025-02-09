@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "email": "johndoe@mail.com",
+        "status": "A",
+        "role": "SUPER_ADMIN"
+    },
+    {
+        "id": 2,
+        "name": "Jane Doe",
+        "email": "johndoe@mail.com",
+        "status": "A",
+        "role": "ADMIN"
+    },
+    {
+        "id": 3,
+        "name": "John Smith",
+        "email": "johnsmith@mail.com",
+        "status": "A",
+        "role": "USER"
+    },
+    {
+        "id": 4,
+        "name": "John Smith",
+        "email": "johnsmith@mail.com",
+        "status": "A",
+        "role": "SUPER_ADMIN"
+    },
+    {
+        "id": 5,
+        "name": "John Doe",
+        "email": "johndoe@mail.com",
+        "status": "A",
+        "role": "SUPER_ADMIN"
+    },
+    {
+        "id": 6,
+        "name": "Jane Doe",
+        "email": "johndoe@mail.com",
+        "status": "A",
+        "role": "ADMIN"
+    },
+    {
+        "id": 7,
+        "name": "John Smith",
+        "email": "johnsmith@mail.com",
+        "status": "A",
+        "role": "USER"
+    },
+    {
+        "id": 8,
+        "name": "John Doe",
+        "email": "johndoe@mail.com",
+        "status": "A",
+        "role": "SUPER_ADMIN"
+    },
+    {
+        "id": 9,
+        "name": "Jane Doe",
+        "email": "johndoe@mail.com",
+        "status": "A",
+        "role": "ADMIN"
+    },
+    {
+        "id": 10,
+        "name": "John Smith",
+        "email": "johnsmith@mail.com",
+        "status": "A",
+        "role": "USER"
+    }
+]

@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "code": "0001",
+        "name": "มันสำปะหลัง",
+        "description": "มันสำปะหลัง หรือ มันฝรั่ง หรือ มันฝรั่งหัวใหญ่ หรือ มันฝรั่งหัวเล็ก",
+        "img": "/assets/crop/icon/cassava.svg",
+        "status": "active"
+    },
+    {
+        "id": 2,
+        "code": "0002",
+        "name": "ข้าวโพด",
+        "description": "ข้าวโพด",
+        "img": "/assets/crop/icon/corn.svg",
+        "status": "active"
+    },
+    {
+        "id": 3,
+        "code": "0003",
+        "name": "ข้าว",
+        "description": "ข้าวหอมมะลิ, ข้าวเหนียว, ข้าวกล้อง, ข้าวไรซ์เบอรรี่",
+        "img": "/assets/crop/icon/grain-rice-icon 1.svg",
+        "status": "inactive"
+    },
+    {
+        "id": 4,
+        "code": "0004",
+        "name": "มะพร้าว",
+        "description": "มะพร้าว",
+        "img": "/assets/crop/icon/coconut.png",
+        "status": "active"
+    },
+    {
+        "id": 5,
+        "code": "0005",
+        "name": "มะม่วง",
+        "description": "มะม่วง",
+        "img": "/assets/crop/icon/mango.svg",
+        "status": "inactive"
+    },
+    {
+        "id": 6,
+        "code": "0006",
+        "name": "ทุเรียน",
+        "description": "ทุเรียน",
+        "img": "/assets/crop/icon/durian.png",
+        "status": "inactive"
+    },
+    {
+        "id": 7,
+        "code": "0007",
+        "name": "มะเขือเทศ",
+        "description": "มะเขือเทศ",
+        "img": "/assets/crop/icon/tomato.svg",
+        "status": "inactive"
+    },
+    {
+        "id": 8,
+        "code": "0008",
+        "name": "มะเขือพวง",
+        "description": "มะเขือพวง",
+        "img": "/assets/crop/icon/eggplant.svg",
+        "status": "inactive"
+    },
+    {
+        "id": 9,
+        "code": "0009",
+        "name": "มะเขือเปา",
+        "description": "มะเขือเปา",
+        "img": "/assets/crop/icon/thai-eggplant.jpg",
+        "status": "active"
+    }
+]
