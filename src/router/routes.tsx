@@ -186,7 +186,8 @@ const routes = [
     // dashboard
     {
         path: '/',
-        element: <HomeView />,
+        element: <AuthSignInView />,
+        layout: 'blank',
     },
 
     // Users page

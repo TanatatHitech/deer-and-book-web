@@ -17,10 +17,10 @@ module.exports = {
         extend: {
             colors: {
                 crop: {
-                    primary: '#068042',
-                    secondary: '#34A853',
-                    tertiary: '#4BA26A',
-                    quaternary: '#6dbe71',
+                    primary: '#9c60f5',
+                    secondary: '#3b1086',
+                    tertiary: '#546ee0',
+                    quaternary: '#4a7ce1',
                     quinary: '#4fa263',
                     senary: '#b2ed82',
                 },
