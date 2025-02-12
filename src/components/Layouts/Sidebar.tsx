@@ -85,10 +85,7 @@ const Sidebar = () => {
             >
                 <div className="h-full !font-light ">
                     <div className="flex justify-center items-center px-4 py-3 bg-crop-quinary">
-                        <NavLink to="/home" className="main-logo flex flex-col items-center shrink-0">
-                            <img className="w-20 ml-[5px] flex-none" src="/assets/images/logo.svg" alt="logo" />
-                            <span className="text-2xl ltr:ml-1.5 rtl:mr-1.5 font-semibold align-middle lg:inline text-white">GAP +</span>
-                        </NavLink>
+                        <NavLink to="/home" className="main-logo flex flex-col items-center shrink-0"></NavLink>
 
                         {/* <button
                             type="button"

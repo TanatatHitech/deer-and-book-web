@@ -5,10 +5,6 @@ import IconCaretDown from '@/components/Icon/IconCaretDown';
 import IconEye from '@/components/Icon/IconEye';
 import IconMail from '@/components/Icon/IconMail';
 import IconLockDots from '@/components/Icon/IconLockDots';
-import IconInstagram from '@/components/Icon/IconInstagram';
-import IconFacebookCircle from '@/components/Icon/IconFacebookCircle';
-import IconTwitter from '@/components/Icon/IconTwitter';
-import IconGoogle from '@/components/Icon/IconGoogle';
 
 import useViewModel from './ViewModel';
 import { clsx } from '@mantine/core';
@@ -18,19 +14,19 @@ const View: FC = () => {
 
     return (
         <Fragment>
-            <div className="relative flex min-h-screen items-center bg-cover bg-center bg-no-repeat dark:bg-[#060818]">
+            <div className="relative flex min-h-screen items-center justify-center bg-cover bg-center bg-no-repeat dark:bg-[#060818]">
                 {/* Form */}
-                <div className="relative w-full lg:w-1/2 bg-white min-h-screen">
+                <div className="relative w-full bg-white min-h-screen">
                     <div className="relative flex flex-col justify-center rounded-lg bg-white backdrop-blur-lg dark:bg-black/50 px-6 min-h-[758px] lg:h-screen">
                         <div className="mx-auto w-full max-w-[440px]">
                             <img src="/assets/crop/logo/logo.svg" alt="Main Logo" className="block lg:hidden h-36 lg:h-48 lg:mb-7 select-none pointer-events-none mx-auto" />
                             <div className="mb-10">
                                 <div className="flex flex-row justify-between">
-                                    <h1 className="text-3xl font-extrabold !leading-snug text-crop-primary md:text-4xl mb-3 uppercase">ระบบตรวจสอบ GAP+</h1>
+                                    <h1 className="text-3xl font-extrabold !leading-snug text-crop-primary md:text-3xl mb-3 uppercase">Deer and Book Login</h1>
                                     {/* {errorMessage && <div className="text-red-500 text-sm">{errorMessage}</div>} */}
                                 </div>
 
-                                <p className="text-base font-bold leading-normal text-white-dark">เข้าสู่ระบบสำหรับเกษตรกร</p>
+                                <p className="text-base font-bold leading-normal text-white-dark">เข้าสู่ระบบอ่านหนังสือ</p>
                             </div>
                             <form className="space-y-5 dark:text-white" onSubmit={submitForm}>
                                 <div>
@@ -109,14 +105,6 @@ const View: FC = () => {
                             <div className="text-center pt-0 mt-10">© {new Date().getFullYear()}. DOAE All Right Reserved.</div>
                         </div>
                     </div>
-                </div>
-
-                {/* Info */}
-                <div className="hidden lg:flex flex-col items-center justify-center relative w-full lg:w-1/2 min-h-screen max-h-screen px-20 text-center bg-[url('/assets/crop/bg/green-slope-gradient-1.webp')] bg-cover bg-no-repeat bg-opacity-20">
-                    <img src="/assets/crop/logo/logo.svg" alt="Main Logo" className="h-36 lg:h-48 lg:mb-7 select-none pointer-events-none mx-auto" />
-                    <h1 className="text-black text-base md:text-3xl font-extrabold mb-3 lg:mb-2">ระบบตรวจสอบ GAP+</h1>
-                    <h2 className="text-black text-base md:text-xl font-semibold mb-3 lg:mb-2">บริหารจัดการที่ดินแปลงปลูกของเกษตรไทย</h2>
-                    <p className="text-gray-700 text-sm md:text-base lg:text-xl mx-auto">ยกระดับมาตรฐานเกษตรกรรมไทยก้าวสู่สากล</p>
                 </div>
             </div>
         </Fragment>
