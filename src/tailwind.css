@@ -577,6 +577,15 @@ hover:text-primary hover:before:!bg-primary ltr:before:mr-2 rtl:before:ml-2 dark
     @apply !bg-transparent;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+
 /* swal2 */
 .swal2-container .swal2-close {
     @apply text-white hover:text-dark-light focus:shadow-none;

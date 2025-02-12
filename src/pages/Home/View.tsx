@@ -20,6 +20,8 @@ import MyLand from './Component/myLand';
 import WeatherCard from './Component/WeatherCard';
 import { formatLocation } from '@/utils/locationFormatter';
 
+import { FaSearch } from "react-icons/fa";
+
 const HomeView: FC = () => {
     const mockWeatherData = [
         { date: new Date(new Date().setDate(new Date().getDate() + 1)), temperature: 20, weather: 'cloudy', humidity: 82 },
@@ -38,12 +40,74 @@ const HomeView: FC = () => {
 
     return (
         <Fragment>
-            <div className='bg-[url("/assets/crop/bg/home-bg.png")] bg-center bg-cover bg-no-repeat min-h-screen md:bg-white md:bg-none'>
+            <div className='h-full'>
+                <div className="flex flex-col h-72 bg-gradient-to-b from-[#B347FD] to-[#6789EE] rounded-b-3xl">
+                    <div className="flex items-center justify-center h-24">
+                        <div className="flex h-12">
+                            <img src="/assets/images/icon/logo.png" alt="logo"></img>
+                        </div>
+                    </div>
+                    <div className="flex flex-col">
+                        <div className="px-6 font-bold text-white text-sm my-1">Categories</div>
+                        <div className="flex flex-row overflow-auto no-scrollbar w-full">
+                            <div className="flex flex-col items-center py-2 ml-5 mr-3">
+                                <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
+                                    <img style={{ height: 30, width: 30 }} src="/assets/images/icon/boy-love-icon.png" alt="logo"></img>
+                                </div>
+                                <div className="text-[11px] text-white mt-1 truncate font-bold">Boy Love</div>
+                            </div>
+                            <div className="flex flex-col items-center py-2 mx-3">
+                                <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
+                                    <img style={{ height: 30, width: 30 }} src="/assets/images/icon/girl-love-icon.png" alt="logo"></img>
+                                </div>
+                                <div className="text-[11px] text-white mt-1 truncate font-bold">Girl Love</div>
+                            </div>
+                            <div className="flex flex-col items-center py-2 mx-3">
+                                <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
+                                    <img style={{ height: 30, width: 30 }} src="/assets/images/icon/travel-icon.png" alt="logo"></img>
+                                </div>
+                                <div className="text-[11px] text-white mt-1 truncate font-bold">Travel</div>
+                            </div>
+                            <div className="flex flex-col items-center py-2 mx-3">
+                                <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
+                                    <img style={{ height: 30, width: 30 }} src="/assets/images/icon/healthy-icon.png" alt="logo"></img>
+                                </div>
+                                <div className="text-[11px] text-white mt-1 truncate font-bold">Healthy</div>
+                            </div>
+                            <div className="flex flex-col items-center py-2 mx-3">
+                                <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
+                                    <img style={{ height: 30, width: 30 }} src="/assets/images/icon/food-and-drinks-icon.png" alt="logo"></img>
+                                </div>
+                                <div className="text-[11px] text-white mt-1 truncate font-bold">Food & Drinks</div>
+                            </div>
+                            <div className="flex flex-col items-center py-2 mx-3">
+                                <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
+                                    <img style={{ height: 30, width: 30 }} src="/assets/images/icon/comics-icon.png" alt="logo"></img>
+                                </div >
+                                <div className="text-[11px] text-white mt-1 truncate font-bold">Comics</div>
+                            </div>
+                        </div >
+                        <div style={{ width: "80%" }} className="relative self-center my-2">
+                            <input
+                                type="text"
+                                placeholder="Search by name"
+                                className="w-full px-4 py-3 text-white placeholder-white bg-transparent border border-white rounded-full outline-none focus:ring-2 focus:ring-white"
+                            />
+                            <button className="absolute right-3 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full">
+                                <FaSearch size={16} />
+                            </button>
+                        </div>
+                    </div >
+                </div >
+                <div className="flex flex h-full bg-dark lg:hidden">
+
+                </div>
+            </div >
+            {/* <div className='bg-[url("/assets/crop/bg/home-bg.png")] bg-center bg-cover bg-no-repeat min-h-screen md:bg-white md:bg-none'>
                 <div className="grid grid-cols-12 gap-5 p-6 pb-20 lg:pb-6">
                     <div className="col-span-9 lg:hidden">
                         <div className="flex flex-row items-center gap-3">
                             <div className="rounded-full bg-dark-light shadow h-14 w-14 flex items-center justify-center">
-                                {/* <IconUser /> */}
                                 <img src="/assets/crop/profile-pic.png" alt="profile-picture"></img>
                             </div>
                             <div>
@@ -77,11 +141,11 @@ const HomeView: FC = () => {
                                         style={{ backgroundImage: "url('/assets/crop/bg/weather-bg.png')" }}
                                     >
                                         <div className="col-span-6 mt-2">
-                                            <div className="text-xs text-gray-500">วันนี้,</div>
+                                            <div className="text-[11px] text-white mt-1 truncate font-bold text-gray-500">วันนี้,</div>
                                             <div className="text-gray-500">{formatThaiDateNotime(new Date())}</div>
                                             <div className="mt-5 mb-2">
                                                 <span className="text-3xl font-semibold">18°C</span>
-                                                <span className="text-xs "> ความชื้น 82%</span>
+                                                <span className="text-[11px] text-white mt-1 truncate font-bold "> ความชื้น 82%</span>
                                             </div>
                                             <hr className="border-t-1 border-black" />
                                             <div className=" text-gray-500 mt-2">แม่ริม, เชียงใหม่</div>
@@ -121,12 +185,8 @@ const HomeView: FC = () => {
                             <div className="col-span-12 block lg:hidden">
                                 <div className="flex flex-row justify-between">
                                     <div className="font-semibold">เมนูลัด</div>
-                                    {/* <div className=" text-crop-primary flex cursor-pointer">
-                                        <span>ดูทั้งหมด</span> <img src="/assets/crop/icon/arrow-right.png" className="ml-1" />
-                                    </div> */}
                                 </div>
 
-                                {/* Menu */}
 
                                 <div className="panel" style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
                                     <div className="grid grid-cols-12 gap-2 md:gap-7">
@@ -184,7 +244,7 @@ const HomeView: FC = () => {
                             <div className="col-span-12 lg:col-span-6 mt-3">
                                 <div className=" block md:hidden col-span-12">
                                     <div
-                                        className="text-xs flex flex-row justify-between rounded-lg py-4 px-2"
+                                        className="text-[11px] text-white mt-1 truncate font-bold flex flex-row justify-between rounded-lg py-4 px-2"
                                         style={{
                                             background: 'linear-gradient(to right, #FFF8B633, #FFD35B33)',
                                         }}
@@ -195,12 +255,10 @@ const HomeView: FC = () => {
                                             <span>รายการ</span>
                                         </div>
                                         <div className=" text-crop-primary flex items-center">
-                                            {/* <span>ดูแผนงานในอนาคต</span> <img src="/assets/crop/icon/arrow-right.png" className="ml-1" /> */}
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* Plans */}
 
                                 <div className="grid grid-cols-12 gap-5">
                                     <div className="col-span-12">
@@ -235,23 +293,6 @@ const HomeView: FC = () => {
                             </div>
                             <div className="hidden lg:block lg:col-span-6 mt-3 pl-5">
                                 <img src="/assets/images/farmer-pic.png" />
-                                {/* <div className="col-span-12">
-                                    <div
-                                        className=" flex flex-row justify-between rounded-lg py-4 px-2 items-center "
-                                        style={{
-                                            background: 'linear-gradient(to right, #FFF8B633, #FFD35B33)',
-                                        }}
-                                    >
-                                        <div className="text-lg flex flex-row  items-center">
-                                            <span>กำลังจะถึง</span>
-                                            <div className="bg-crop-quaternary w-7 h-7 text-white rounded-full flex items-center justify-center mx-2">6</div>
-                                            <span>รายการ</span>
-                                        </div>
-                                        <div className=" text-crop-primary flex items-center">
-                                            <span>ดูแผนงานในอนาคต</span> <img src="/assets/crop/icon/arrow-right.png" className="ml-1" />
-                                        </div>
-                                    </div>
-                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -289,8 +330,8 @@ const HomeView: FC = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </Fragment>
+            </div> */}
+        </Fragment >
     );
 };
 
