@@ -1,4 +1,4 @@
-import { Fragment, type FC, useEffect } from 'react';
+import { Fragment, type FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import IconUser from '@/components/Icon/IconUser';
 import IconMapPin from '@/components/Icon/IconMapPin';
@@ -20,7 +20,7 @@ import MyLand from './Component/myLand';
 import WeatherCard from './Component/WeatherCard';
 import { formatLocation } from '@/utils/locationFormatter';
 
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaHome, FaUser, FaSignOutAlt } from "react-icons/fa";
 
 const HomeView: FC = () => {
     const mockWeatherData = [
@@ -86,20 +86,58 @@ const HomeView: FC = () => {
                                 className="w-full px-4 py-2 text-white placeholder-white bg-transparent border border-white rounded-full outline-none focus:ring-2 focus:ring-white"
                             />
                             <button className="absolute right-3 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full">
-                                <FaSearch size={16} />
+                                <img style={{ height: 20, width: 20 }} src="/assets/images/icon/search-icon.png" alt="search-icon"></img>
                             </button>
                         </div>
                     </div >
 
                 </div >
-                <div className="w-full h-full overflow-y-auto grid grid-cols-2 sm:grid-cols-4 gap-6 p-10 bg-white pb-20">
+                <div className="w-full h-full overflow-y-auto grid grid-cols-2 sm:grid-cols-4 gap-6 p-10 bg-white pb-24 content-start">
                     {books.map((book, index) => (
-                        <div key={index} className="flex flex-col items-center p-3 bg-gray-100 rounded-lg h-50">
+                        <div key={index} className="flex flex-col items-center p-3 bg-gray-100 rounded-lg sm:h-60">
                             <p className="text-center font-semibold">{book.title}</p>
                             <img src={book.image} alt={book.title} className="mt-2 w-full h-40 object-cover rounded-md object-contain" />
                         </div>
                     ))}
                 </div>
+
+
+
+                <div className="fixed bottom-0 w-full bg-gradient-to-b from-[#6789EE] to-[#B347FD] py-3 shadow-lg">
+                    <div className="flex justify-around items-center text-white">
+                        {/* Home */}
+                        <div
+                            // onClick={() => setActive("home")}
+                            className={`flex flex-col items-center cursor-pointer ${true ? "text-white font-bold" : "text-white opacity-50"
+                                }`}
+                        >
+                            <img style={{ height: 20, width: 20 }} src="/assets/images/icon/home-icon.png" alt="home-icon"></img>
+                            <span>Home</span>
+                        </div>
+
+                        {/* User */}
+                        <div
+                            // onClick={() => setActive("user")}
+                            className={`flex flex-col items-center cursor-pointer ${false ? "text-white font-bold" : "text-white opacity-50"
+                                }`}
+                        >
+                            <img style={{ height: 20, width: 20 }} src="/assets/images/icon/user-icon.png" alt="user-icon"></img>
+                            <span>User</span>
+                        </div>
+
+                        {/* Logout */}
+                        <div
+                            // onClick={() => setActive("logout")}
+                            className={`flex flex-col items-center cursor-pointer ${false ? "text-white font-bold" : "text-white opacity-50"
+                                }`}
+                        >
+                            <img style={{ height: 20, width: 20 }} src="/assets/images/icon/logout-icon.png" alt="logout-icon"></img>
+                            <span>Logout</span>
+                        </div>
+                    </div>
+                </div>
+
+
             </div >
             {/* <div className='bg-[url("/assets/crop/bg/home-bg.png")] bg-center bg-cover bg-no-repeat min-h-screen md:bg-white md:bg-none'>
                 <div className="grid grid-cols-12 gap-5 p-6 pb-20 lg:pb-6">
