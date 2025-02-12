@@ -38,69 +38,67 @@ const HomeView: FC = () => {
         getAllLands();
     }, []);
 
+    const books = [
+        { title: "พี่ครับผมอยากลดพุง", image: "assets/images/icon/book-1.png" },
+        { title: "ใครๆ ก็ไปเที่ยวอเมริกา", image: "assets/images/icon/book-2.png" },
+        { title: "Eat Smart", image: "/assets/images/icon/book-3.png" },
+        { title: "วันหนึ่งผมเดินเข้าป่า", image: "/assets/images/icon/book-4.png" },
+        { title: "Book 5", image: "/assets/images/icon/book-1.png" },
+        { title: "Book 6", image: "/assets/images/icon/book-2.png" },
+        { title: "Book 7", image: "/assets/images/icon/book-3.png" },
+        { title: "Book 8", image: "/assets/images/icon/book-4.png" },
+    ]
+
+    const categories = [
+        { name: "Boy Love", icon: "/assets/images/icon/boy-love-icon.png" },
+        { name: "Girl Love", icon: "/assets/images/icon/girl-love-icon.png" },
+        { name: "Travel", icon: "/assets/images/icon/travel-icon.png" },
+        { name: "Healthy", icon: "/assets/images/icon/healthy-icon.png" },
+        { name: "Food & Drinks", icon: "/assets/images/icon/food-and-drinks-icon.png" },
+        { name: "Comics", icon: "/assets/images/icon/comics-icon.png" }
+    ]
+
     return (
         <Fragment>
-            <div className='h-full'>
+            <div className='h-screen flex flex-col lg:hidden'>
                 <div className="flex flex-col h-72 bg-gradient-to-b from-[#B347FD] to-[#6789EE] rounded-b-3xl">
                     <div className="flex items-center justify-center h-24">
                         <div className="flex h-12">
                             <img src="/assets/images/icon/logo.png" alt="logo"></img>
                         </div>
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col sm:items-center">
                         <div className="px-6 font-bold text-white text-sm my-1">Categories</div>
-                        <div className="flex flex-row overflow-auto no-scrollbar w-full">
-                            <div className="flex flex-col items-center py-2 ml-5 mr-3">
-                                <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
-                                    <img style={{ height: 30, width: 30 }} src="/assets/images/icon/boy-love-icon.png" alt="logo"></img>
+                        <div className="flex flex-row overflow-auto no-scrollbar w-full sm:justify-center">
+                            {categories.map((icon, index) => (
+                                <div className={index === 0 ? "flex flex-col items-center py-2 ml-5 mr-3" : "flex flex-col items-center py-2 mx-3"}>
+                                    <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
+                                        <img style={{ height: 30, width: 30 }} src={icon.icon} alt={icon.name}></img>
+                                    </div>
+                                    <div className="text-[11px] text-white mt-1 truncate font-bold">{icon.name}</div>
                                 </div>
-                                <div className="text-[11px] text-white mt-1 truncate font-bold">Boy Love</div>
-                            </div>
-                            <div className="flex flex-col items-center py-2 mx-3">
-                                <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
-                                    <img style={{ height: 30, width: 30 }} src="/assets/images/icon/girl-love-icon.png" alt="logo"></img>
-                                </div>
-                                <div className="text-[11px] text-white mt-1 truncate font-bold">Girl Love</div>
-                            </div>
-                            <div className="flex flex-col items-center py-2 mx-3">
-                                <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
-                                    <img style={{ height: 30, width: 30 }} src="/assets/images/icon/travel-icon.png" alt="logo"></img>
-                                </div>
-                                <div className="text-[11px] text-white mt-1 truncate font-bold">Travel</div>
-                            </div>
-                            <div className="flex flex-col items-center py-2 mx-3">
-                                <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
-                                    <img style={{ height: 30, width: 30 }} src="/assets/images/icon/healthy-icon.png" alt="logo"></img>
-                                </div>
-                                <div className="text-[11px] text-white mt-1 truncate font-bold">Healthy</div>
-                            </div>
-                            <div className="flex flex-col items-center py-2 mx-3">
-                                <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
-                                    <img style={{ height: 30, width: 30 }} src="/assets/images/icon/food-and-drinks-icon.png" alt="logo"></img>
-                                </div>
-                                <div className="text-[11px] text-white mt-1 truncate font-bold">Food & Drinks</div>
-                            </div>
-                            <div className="flex flex-col items-center py-2 mx-3">
-                                <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
-                                    <img style={{ height: 30, width: 30 }} src="/assets/images/icon/comics-icon.png" alt="logo"></img>
-                                </div >
-                                <div className="text-[11px] text-white mt-1 truncate font-bold">Comics</div>
-                            </div>
+                            ))}
                         </div >
                         <div style={{ width: "80%" }} className="relative self-center my-2">
                             <input
                                 type="text"
                                 placeholder="Search by name"
-                                className="w-full px-4 py-3 text-white placeholder-white bg-transparent border border-white rounded-full outline-none focus:ring-2 focus:ring-white"
+                                className="w-full px-4 py-2 text-white placeholder-white bg-transparent border border-white rounded-full outline-none focus:ring-2 focus:ring-white"
                             />
                             <button className="absolute right-3 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full">
                                 <FaSearch size={16} />
                             </button>
                         </div>
                     </div >
-                </div >
-                <div className="flex flex h-full bg-dark lg:hidden">
 
+                </div >
+                <div className="w-full h-full overflow-y-auto grid grid-cols-2 sm:grid-cols-4 gap-6 p-10 bg-white pb-20">
+                    {books.map((book, index) => (
+                        <div key={index} className="flex flex-col items-center p-3 bg-gray-100 rounded-lg h-50">
+                            <p className="text-center font-semibold">{book.title}</p>
+                            <img src={book.image} alt={book.title} className="mt-2 w-full h-40 object-cover rounded-md object-contain" />
+                        </div>
+                    ))}
                 </div>
             </div >
             {/* <div className='bg-[url("/assets/crop/bg/home-bg.png")] bg-center bg-cover bg-no-repeat min-h-screen md:bg-white md:bg-none'>
