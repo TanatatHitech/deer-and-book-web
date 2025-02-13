@@ -152,39 +152,12 @@ const HomeView: FC = () => {
                         </div>
                     ))}
                 </div>
-
-                <div className="fixed bottom-0 w-full  py-3 shadow-lg">
-                    <div className="flex justify-around items-center text-white">
-                        {/* Home */}
-                        <div
-                            // onClick={() => setActive("home")}
-                            className={`flex flex-col items-center cursor-pointer ${true ? 'text-white font-bold' : 'text-white opacity-50'}`}
-                        >
-                            <img style={{ height: 20, width: 20 }} src="/assets/images/icon/home-icon.png" alt="home-icon"></img>
-                            <span>Home</span>
-                        </div>
-
-                        {/* User */}
-                        <div
-                            // onClick={() => setActive("user")}
-                            className={`flex flex-col items-center cursor-pointer ${false ? 'text-white font-bold' : 'text-white opacity-50'}`}
-                        >
-                            <img style={{ height: 20, width: 20 }} src="/assets/images/icon/user-icon.png" alt="user-icon"></img>
-                            <span>User</span>
-                        </div>
-
-                        {/* Logout */}
-                        <div
-                            // onClick={() => setActive("logout")}
-                            className={`flex flex-col items-center cursor-pointer ${false ? 'text-white font-bold' : 'text-white opacity-50'}`}
-                        >
-                            <img style={{ height: 20, width: 20 }} src="/assets/images/icon/logout-icon.png" alt="logout-icon"></img>
-                            <span>Logout</span>
-                        </div>
-                    </div>
+            </div>
+            <div className="lg:block hidden">
+                <div className="flex flex-row h-screen mx-auto w-full">
+                    <p className="text-crop-primary">ไม่สามารถแสดงผลงได้</p>
                 </div>
             </div>
-            <div className="lg:block hidden"></div>
         </Fragment>
     );
 };
