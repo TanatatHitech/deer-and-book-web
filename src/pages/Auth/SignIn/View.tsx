@@ -30,7 +30,7 @@ const View: FC = () => {
                             </div>
                             <form className="space-y-5 dark:text-white" onSubmit={submitForm}>
                                 <div>
-                                    <label htmlFor="citizenId">เลขที่บัตรประชาชน</label>
+                                    <label htmlFor="citizenId">Username</label>
                                     <div className="relative text-white-dark">
                                         <input
                                             id="citizenId"
@@ -51,7 +51,7 @@ const View: FC = () => {
                                     {formError.citizenId && <div className="text-red-500 text-sm mt-2">{formError.citizenId}</div>}
                                 </div>
                                 <div>
-                                    <label htmlFor="Password">รหัสผ่าน</label>
+                                    <label htmlFor="Password">Password</label>
                                     <div className="relative text-white-dark">
                                         <input
                                             id="Password"

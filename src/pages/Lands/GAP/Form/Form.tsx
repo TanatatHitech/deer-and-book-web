@@ -1,6 +1,5 @@
 import { type FC, useState, useEffect } from 'react';
 import { useLandStore } from '@/store/landStore';
-import { useAdminAuthStore } from '@/store/admin-auth';
 
 const GAPForm: FC = () => {
     const [formData, setFormData] = useState({
@@ -18,7 +17,6 @@ const GAPForm: FC = () => {
     type FormDataKey = keyof typeof formData;
 
     const { getActiveLandByID, land } = useLandStore();
-    const { getProfile, profile } = useAdminAuthStore();
 
     const addressFields: { label: string; name: FormDataKey }[] = [
         { label: 'บ้านเลขที่', name: 'houseNo' },
@@ -56,25 +54,7 @@ const GAPForm: FC = () => {
 
     useEffect(() => {
         getActiveLandByID(1);
-        getProfile();
-    }, [getActiveLandByID, getProfile]);
-
-    useEffect(() => {
-        if (land && profile) {
-            setFormData({
-                name: profile.name || '',
-                location: land.location || '',
-                crop: land.crop || '',
-                phone: formatPhoneNumber(profile.phone || ''),
-                houseNo: land.houseNo || '',
-                village: land.village || '',
-                subDistrict: land.subDistrict || '',
-                district: land.district || '',
-                province: land.province || '',
-                postalCode: land.postalCode || '',
-            });
-        }
-    }, [land, profile]);
+    }, [getActiveLandByID]);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();

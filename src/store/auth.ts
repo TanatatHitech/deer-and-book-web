@@ -2,10 +2,12 @@ import { create } from 'zustand';
 import axios from 'axios';
 import { cl } from '@fullcalendar/core/internal-common';
 
+const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT;
+
 export interface AuthStore {
     profile: any;
     error: string | null;
-    signinFarmer: (data: any) => Promise<{ success: boolean }>;
+    signinUser: (data: any) => Promise<{ success: boolean }>;
     // register: (data: any) => Promise<{ success: boolean; data: any }>;
     verify: () => Promise<{ success: boolean }>;
     // verifyRegister: (data: any) => Promise<{ success: boolean; data: any }>;
@@ -21,11 +23,11 @@ export interface AuthStore {
 export const useAuthStore = create<AuthStore>((set, get) => ({
     profile: {},
     error: null,
-    signinFarmer: async (data) => {
+    signinUser: async (data) => {
         return axios
-            .post(`/api/auth/login`, data, { withCredentials: true })
+            .post(`${API_ENDPOINT}/api/login`, data, { withCredentials: true })
             .then((response) => {
-                // set({ profile: response.data?.data ?? {} })
+                set({ profile: response.data.user });
                 return { success: true };
             })
             .catch((error) => {
@@ -47,7 +49,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
     // },
     verify: async () => {
         return axios
-            .get(`api/verify`)
+            .get(`${API_ENDPOINT}/api/verify`)
             .then((response) => {
                 // set({ profile: response.data?.data?.user ?? {} })
                 return { success: true };
@@ -70,7 +72,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
     // },
     refreshFarmer: async () => {
         return axios
-            .post(`/api/auth/refresh-token`)
+            .post(`${API_ENDPOINT}/api/auth/refresh-token`)
             .then((response) => {
                 // set({ profile: response.data })
                 return { success: true, data: response.data };
@@ -81,7 +83,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
     },
     registerFarmer: async (data) => {
         return axios
-            .post(`/api/auth/register`, data, { withCredentials: true })
+            .post(`${API_ENDPOINT}/api/auth/register`, data, { withCredentials: true })
             .then((response) => {
                 // set({ profile: response.data?.data ?? {} })
                 return { success: true };
@@ -94,7 +96,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
     },
     getProfile: async () => {
         return axios
-            .get(`/api/auth/profile`, { withCredentials: true })
+            .get(`${API_ENDPOINT}/api/auth/profile`, { withCredentials: true })
             .then((response) => {
                 set({ profile: response.data.data });
                 return { success: true };

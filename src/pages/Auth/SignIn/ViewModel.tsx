@@ -37,7 +37,7 @@ const ViewModel = () => {
             errorMessage: state.error,
         }))
     );
-    const signinFarmer = useAuthStore((state) => state.signinFarmer);
+    const signinUser = useAuthStore((state) => state.signinUser);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [formState, setFormState] = useState<typeof INITIAL_STATE>(INITIAL_STATE);
@@ -73,9 +73,10 @@ const ViewModel = () => {
     const handleSubmitForm = () => {
         setIsSubmitting(true);
 
-        signinFarmer({ username: formState.citizenId, password: formState.password })
+        signinUser({ username: formState.citizenId, password: formState.password })
             .then((response: any) => {
                 if (response.success) {
+                    localStorage.setItem('token', response.data.token);
                     navigate('/home');
                     // navigate('/admin/dashboard');
                 }
