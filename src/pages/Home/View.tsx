@@ -21,32 +21,74 @@ import WeatherCard from './Component/WeatherCard';
 import { formatLocation } from '@/utils/locationFormatter';
 
 import { FaSearch, FaHome, FaUser, FaSignOutAlt } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const HomeView: FC = () => {
-    const mockWeatherData = [
-        { date: new Date(new Date().setDate(new Date().getDate() + 1)), temperature: 20, weather: 'cloudy', humidity: 82 },
-        { date: new Date(new Date().setDate(new Date().getDate() + 2)), temperature: 18, weather: 'sun', humidity: 70 },
-        { date: new Date(new Date().setDate(new Date().getDate() + 3)), temperature: 19, weather: 'cloudy', humidity: 65 },
-        { date: new Date(new Date().setDate(new Date().getDate() + 4)), temperature: 22, weather: 'cloudy', humidity: 60 },
-        { date: new Date(new Date().setDate(new Date().getDate() + 5)), temperature: 19, weather: 'sun', humidity: 80 },
-    ];
-    const { getTodayJob, plan } = useCropPlanStore();
-    const { getAllLands, lands } = useLandStore();
 
-    useEffect(() => {
-        getTodayJob();
-        getAllLands();
-    }, []);
+    const navigate = useNavigate()
 
-    const books = [
-        { title: "พี่ครับผมอยากลดพุง", image: "assets/images/icon/book-1.png" },
-        { title: "ใครๆ ก็ไปเที่ยวอเมริกา", image: "assets/images/icon/book-2.png" },
-        { title: "Eat Smart", image: "/assets/images/icon/book-3.png" },
-        { title: "วันหนึ่งผมเดินเข้าป่า", image: "/assets/images/icon/book-4.png" },
-        { title: "Book 5", image: "/assets/images/icon/book-1.png" },
-        { title: "Book 6", image: "/assets/images/icon/book-2.png" },
-        { title: "Book 7", image: "/assets/images/icon/book-3.png" },
-        { title: "Book 8", image: "/assets/images/icon/book-4.png" },
+    const navigateTo = (param: number) => {
+        navigate(`/book-details/${param}`);
+    };
+
+    const mockBooks = [
+        {
+            id: 1,
+            book_category_id: 4,
+            book_cover_id: 18,
+            book_name: "พี่ครับผมอยากลดพุง",
+            cover_image: "assets/images/icon/book-1.png",
+            book_category_name: "Travel"
+        }, {
+            id: 2,
+            book_category_id: 4,
+            book_cover_id: 18,
+            book_name: "ใครๆ ก็ไปเที่ยวอเมริกา",
+            cover_image: "assets/images/icon/book-2.png",
+            book_category_name: "Travel"
+        }, {
+            id: 3,
+            book_category_id: 4,
+            book_cover_id: 18,
+            book_name: "Eat Smart",
+            cover_image: "assets/images/icon/book-3.png",
+            book_category_name: "Travel"
+        }, {
+            id: 4,
+            book_category_id: 4,
+            book_cover_id: 18,
+            book_name: "วันหนึ่งผมเดินเข้าป่า",
+            cover_image: "assets/images/icon/book-4.png",
+            book_category_name: "Travel"
+        }, {
+            id: 5,
+            book_category_id: 4,
+            book_cover_id: 18,
+            book_name: "พี่ครับผมอยากลดพุง",
+            cover_image: "assets/images/icon/book-1.png",
+            book_category_name: "Travel"
+        }, {
+            id: 6,
+            book_category_id: 4,
+            book_cover_id: 18,
+            book_name: "1ใครๆ ก็ไปเที่ยวอเมริกา",
+            cover_image: "assets/images/icon/book-2.png",
+            book_category_name: "Travel"
+        }, {
+            id: 7,
+            book_category_id: 4,
+            book_cover_id: 18,
+            book_name: "Eat Smart",
+            cover_image: "assets/images/icon/book-3.png",
+            book_category_name: "Travel"
+        }, {
+            id: 8,
+            book_category_id: 4,
+            book_cover_id: 18,
+            book_name: "วันหนึ่งผมเดินเข้าป่า",
+            cover_image: "assets/images/icon/book-4.png",
+            book_category_name: "Travel"
+        },
     ]
 
     const categories = [
@@ -57,6 +99,14 @@ const HomeView: FC = () => {
         { name: "Food & Drinks", icon: "/assets/images/icon/food-and-drinks-icon.png" },
         { name: "Comics", icon: "/assets/images/icon/comics-icon.png" }
     ]
+
+    const [searchTerm, setSearchTerm] = useState("");
+
+    // Filter books based on search term
+    const filteredBooks = mockBooks.filter((book) =>
+        book.book_name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
 
     return (
         <Fragment>
@@ -84,6 +134,9 @@ const HomeView: FC = () => {
                                 type="text"
                                 placeholder="Search by name"
                                 className="w-full px-4 py-2 text-white placeholder-white bg-transparent border border-white rounded-full outline-none focus:ring-2 focus:ring-white"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+
                             />
                             <button className="absolute right-3 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full">
                                 <img style={{ height: 20, width: 20 }} src="/assets/images/icon/search-icon.png" alt="search-icon"></img>
@@ -93,10 +146,11 @@ const HomeView: FC = () => {
 
                 </div >
                 <div className="w-full h-full overflow-y-auto grid grid-cols-2 sm:grid-cols-4 gap-6 p-10 bg-white pb-24 content-start">
-                    {books.map((book, index) => (
-                        <div key={index} className="flex flex-col items-center p-3 bg-gray-100 rounded-lg sm:h-60">
-                            <p className="text-center font-semibold">{book.title}</p>
-                            <img src={book.image} alt={book.title} className="mt-2 w-full h-40 object-cover rounded-md object-contain" />
+                    {mockBooks.map((book, index) => (
+                        <div key={index} className="flex flex-col items-center p-3 bg-gray-100 rounded-lg sm:h-60"
+                            onClick={() => navigateTo(book.id)}>
+                            <p className="text-center font-semibold">{book.book_name}</p>
+                            <img src={book.cover_image} alt={book.book_category_name} className="mt-2 w-full h-40 object-cover rounded-md object-contain" />
                         </div>
                     ))}
                 </div>

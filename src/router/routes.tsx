@@ -44,6 +44,7 @@ import GAPForm from '@/pages/Lands/GAP/Form/Form';
 
 import CropCareView from '@/pages/CropCare/List/View';
 import Layouts from '@/pages/Forms/Layouts';
+import BookDetailsView from '@/pages/BookDetails/View';
 
 const routes = [
     // *Smart Crop Routes
@@ -61,6 +62,10 @@ const routes = [
         path: '/home',
         element: <HomeView />,
         layout: 'blank',
+    },
+    {
+        path: '/book-details/:id',
+        element: <BookDetailsView />,
     },
     {
         path: '/land/my-land',
