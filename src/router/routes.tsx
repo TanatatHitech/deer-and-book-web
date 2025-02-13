@@ -61,11 +61,11 @@ const routes = [
     {
         path: '/home',
         element: <HomeView />,
-        layout: 'blank',
     },
     {
         path: '/book-details/:id',
         element: <BookDetailsView />,
+        layout: 'blank',
     },
     {
         path: '/land/my-land',

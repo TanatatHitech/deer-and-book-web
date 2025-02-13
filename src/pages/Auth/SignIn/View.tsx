@@ -82,12 +82,9 @@ const View: FC = () => {
                                 </div>
 
                                 <div className="flex flex-row items-center justify-between">
-                                    <Link to="/forgot-password">
+                                    {/* <Link to="/forgot-password">
                                         <span className="text-black cursor-pointer hover:underline font-bold">ลืมรหัสผ่าน?</span>
-                                    </Link>
-                                    <Link to="/register">
-                                        <span className="text-crop-primary cursor-pointer hover:underline font-bold">ลงทะเบียนเข้าใช้งาน</span>
-                                    </Link>
+                                    </Link> */}
                                 </div>
                                 {errorMessage && <div className="text-red-500 text-sm">{errorMessage}</div>}
                                 <button

@@ -44,7 +44,7 @@ const ViewModel = () => {
     const [formError, setFormError] = useState<typeof INITIAL_ERROR>(INITIAL_ERROR);
 
     const setupPage = () => {
-        setPageTitle(`ลงชื่อเข้าใช้งานสำหรับเจ้าหน้าที่ | ระบบตรวจสอบ GAP+`);
+        setPageTitle(`เข้าสู่ระบบอ่านหนังสือ`);
     };
 
     const changeLanguage = (lng: string) => {

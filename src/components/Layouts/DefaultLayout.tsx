@@ -87,13 +87,13 @@ const DefaultLayout = ({ children }: PropsWithChildren) => {
 
                 <div className={`${navbar} main-container text-black dark:text-white-dark min-h-screen relative`}>
                     {/* BEGIN SIDEBAR */}
-                    <Sidebar />
-                    {/* <BottomNavigationBar /> */}
+                    {/* <Sidebar /> */}
+                    <BottomNavigationBar />
                     {/* END SIDEBAR */}
 
                     <div className="main-content flex flex-col min-h-screen">
                         {/* BEGIN TOP NAVBAR */}
-                        <Header />
+                        {/* <Header /> */}
                         <MobileHeader />
                         {/* END TOP NAVBAR */}
 

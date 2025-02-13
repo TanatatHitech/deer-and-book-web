@@ -132,13 +132,13 @@ const GAPItem: FC<GAPItemProps> = ({
                             {/* {cropName ? ( */}
                             <div className=" flex flex-col gap-2">
                                 <div className="btn bg-crop-quaternary text-white rounded-full hover:opacity-70 py-4 cursor-pointer lg:h-8 lg:font-[400]" onClick={onClickShowCert}>
-                                    แสดงใบรับรอง GAP+
+                                    แสดงใบรับรอง
                                 </div>
                                 <div className="btn bg-crop-quaternary text-white rounded-full hover:opacity-70 py-4 cursor-pointer lg:h-8 lg:font-[400]" onClick={onClickNew}>
-                                    ยื่นคำขอต่ออายุใบรับรอง GAP+
+                                    ยื่นคำขอต่ออายุใบรับรอง
                                 </div>
                                 <div className="btn bg-crop-quaternary text-white rounded-full hover:opacity-70 py-4 cursor-pointer lg:h-8 lg:font-[400]" onClick={onClickNew}>
-                                    ยื่นคำขอใบรับรอง GAP+
+                                    ยื่นคำขอใบรับรอง
                                 </div>
                             </div>
                             {/* ) : (
