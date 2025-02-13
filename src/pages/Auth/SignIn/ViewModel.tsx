@@ -8,12 +8,12 @@ import * as Yup from 'yup';
 import i18next from 'i18next';
 
 const INITIAL_STATE = {
-    citizenId: '',
+    email: '',
     password: '',
 };
 
 const INITIAL_ERROR = {
-    citizenId: '',
+    email: '',
     password: '',
 };
 
@@ -52,7 +52,7 @@ const ViewModel = () => {
     };
 
     const onChangeFormState = (name: string, value: any) => {
-        if (name === 'citizenId') {
+        if (name === 'email') {
             value = value.replace(/-/g, '');
         }
         setFormState((prevState) => ({
@@ -73,12 +73,13 @@ const ViewModel = () => {
     const handleSubmitForm = () => {
         setIsSubmitting(true);
 
-        signinUser({ username: formState.citizenId, password: formState.password })
+        signinUser({ email: formState.email, password: formState.password })
             .then((response: any) => {
-                if (response.success) {
+                if (response.success && response.data.token) {
+                    // Ensure token is present
+                    console.log('success', response.data.token);
                     localStorage.setItem('token', response.data.token);
                     navigate('/home');
-                    // navigate('/admin/dashboard');
                 }
             })
             .finally(() => {

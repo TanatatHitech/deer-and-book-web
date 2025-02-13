@@ -7,7 +7,7 @@ const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT;
 export interface AuthStore {
     profile: any;
     error: string | null;
-    signinUser: (data: any) => Promise<{ success: boolean }>;
+    signinUser: (data: any) => Promise<{ success: boolean; data?: any }>;
     // register: (data: any) => Promise<{ success: boolean; data: any }>;
     verify: () => Promise<{ success: boolean }>;
     // verifyRegister: (data: any) => Promise<{ success: boolean; data: any }>;
@@ -27,8 +27,9 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
         return axios
             .post(`${API_ENDPOINT}/api/login`, data, { withCredentials: true })
             .then((response) => {
-                set({ profile: response.data.user });
-                return { success: true };
+                const { user } = response.data;
+                set({ profile: user });
+                return { success: true, data: user }; // Ensure token is included in response data
             })
             .catch((error) => {
                 console.log(error?.response?.data);

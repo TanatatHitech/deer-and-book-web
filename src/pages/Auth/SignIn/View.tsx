@@ -30,25 +30,25 @@ const View: FC = () => {
                             </div>
                             <form className="space-y-5 dark:text-white" onSubmit={submitForm}>
                                 <div>
-                                    <label htmlFor="citizenId">Username</label>
+                                    <label htmlFor="email">Username</label>
                                     <div className="relative text-white-dark">
                                         <input
-                                            id="citizenId"
-                                            type="citizenId"
+                                            id="email"
+                                            type="email"
                                             placeholder=""
                                             className={clsx('form-input ps-10 placeholder:text-white-dark', {
-                                                'border-red-500': formError.citizenId,
+                                                'border-red-500': formError.email,
                                             })}
                                             autoComplete="off"
-                                            name="citizenId"
-                                            value={formState.citizenId}
-                                            onChange={(e) => onChangeFormState('citizenId', e.target.value)}
+                                            name="email"
+                                            value={formState.email}
+                                            onChange={(e) => onChangeFormState('email', e.target.value)}
                                         />
                                         <span className="absolute start-4 top-1/2 -translate-y-1/2">
                                             <IconMail fill={true} />
                                         </span>
                                     </div>
-                                    {formError.citizenId && <div className="text-red-500 text-sm mt-2">{formError.citizenId}</div>}
+                                    {formError.email && <div className="text-red-500 text-sm mt-2">{formError.email}</div>}
                                 </div>
                                 <div>
                                     <label htmlFor="Password">Password</label>
