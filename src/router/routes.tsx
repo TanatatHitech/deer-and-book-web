@@ -25,6 +25,7 @@ import Nopage from '@/pages/NoPage/View';
 import CropCareView from '@/pages/CropCare/List/View';
 import Layouts from '@/pages/Forms/Layouts';
 import BookDetailsView from '@/pages/BookDetails/View';
+import { ProtectedRoute } from './ProtectedRoute';
 
 const routes = [
     // *Smart Crop Routes
@@ -40,11 +41,19 @@ const routes = [
     },
     {
         path: '/home',
-        element: <HomeView />,
+        element: (
+            <ProtectedRoute>
+                <HomeView />
+            </ProtectedRoute>
+        ),
     },
     {
         path: '/book-details/:id',
-        element: <BookDetailsView />,
+        element: (
+            <ProtectedRoute>
+                <BookDetailsView />
+            </ProtectedRoute>
+        ),
         layout: 'blank',
     },
     {
@@ -77,7 +86,12 @@ const routes = [
 
     {
         path: '/profile/account',
-        element: <ProfileAccountView />,
+
+        element: (
+            <ProtectedRoute>
+                <ProfileAccountView />
+            </ProtectedRoute>
+        ),
     },
     {
         path: '/profile/*',
@@ -94,7 +108,11 @@ const routes = [
     // Users page
     {
         path: '/users/profile',
-        element: <Profile />,
+        element: (
+            <ProtectedRoute>
+                <Profile />
+            </ProtectedRoute>
+        ),
     },
     {
         path: '/users/user-account-settings',
