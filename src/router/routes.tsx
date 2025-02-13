@@ -118,7 +118,6 @@ const routes = [
         path: '/active-land/:id',
         element: <ActiveLandDetailView />,
     },
-    { path: '/today-plan', element: <TodayPlan /> },
     {
         path: '/land/:id',
         element: <LandDetailView />,
@@ -143,14 +142,7 @@ const routes = [
         path: '/start/select-land',
         element: <PlanDetailOverviewView />,
     },
-    {
-        path: '/plan/edit/fertilizer/:id',
-        element: <ViewEditFertilizer />,
-    },
-    {
-        path: '/plan/edit/pesticide/:id',
-        element: <ViewEditPesticide />,
-    },
+
     {
         path: '/plan/edit/plant-type/:id',
         element: <ViewEditPlantType />,

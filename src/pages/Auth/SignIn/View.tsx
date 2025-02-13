@@ -19,7 +19,7 @@ const View: FC = () => {
                 <div className="relative w-full bg-white min-h-screen">
                     <div className="relative flex flex-col justify-center rounded-lg bg-white backdrop-blur-lg dark:bg-black/50 px-6 min-h-[758px] lg:h-screen">
                         <div className="mx-auto w-full max-w-[440px]">
-                            <img src="/assets/crop/logo/logo.svg" alt="Main Logo" className="block lg:hidden h-36 lg:h-48 lg:mb-7 select-none pointer-events-none mx-auto" />
+                            {/* <img src="/assets/crop/logo/logo.svg" alt="Main Logo" className="block lg:hidden h-36 lg:h-48 lg:mb-7 select-none pointer-events-none mx-auto" /> */}
                             <div className="mb-10">
                                 <div className="flex flex-row justify-between">
                                     <h1 className="text-3xl font-extrabold !leading-snug text-crop-primary md:text-3xl mb-3 uppercase">Deer and Book Login</h1>
@@ -30,7 +30,7 @@ const View: FC = () => {
                             </div>
                             <form className="space-y-5 dark:text-white" onSubmit={submitForm}>
                                 <div>
-                                    <label htmlFor="email">Username</label>
+                                    <label htmlFor="email">E-mail</label>
                                     <div className="relative text-white-dark">
                                         <input
                                             id="email"
@@ -102,7 +102,7 @@ const View: FC = () => {
                                 </button>
                             </form>
 
-                            <div className="text-center pt-0 mt-10">© {new Date().getFullYear()}. DOAE All Right Reserved.</div>
+                            <div className="text-center pt-0 mt-10">© {new Date().getFullYear()}. DEER AND BOOK All Right Reserved.</div>
                         </div>
                     </div>
                 </div>
