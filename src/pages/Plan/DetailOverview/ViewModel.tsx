@@ -3,7 +3,6 @@ import { MobileHeaderContext } from '@/Context/MobileHeader';
 import { useThemeStore } from '@/store/theme';
 import { useShallow } from 'zustand/react/shallow';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useLandStore } from '@/store/landStore';
 
 const ViewModel = () => {
     const { id } = useParams();
@@ -14,7 +13,6 @@ const ViewModel = () => {
         }))
     );
     const { setShowHeader, setTitle, setupBackButton } = useContext(MobileHeaderContext);
-    const { lands, getAllLands } = useLandStore(useShallow((state) => ({ lands: state.lands, getAllLands: state.getAllLands })));
 
     const setupPage = () => {
         setPageTitle(`Crop Care | DOAE`);
@@ -24,7 +22,6 @@ const ViewModel = () => {
             setupBackButton(false);
             navigate('/start');
         });
-        getAllLands();
     };
 
     const onSelectPlan = (landId: string) => {
@@ -40,7 +37,6 @@ const ViewModel = () => {
     }, []);
 
     return {
-        lands,
         onSelectPlan,
     };
 };

@@ -3,10 +3,12 @@ import { MobileHeaderContext } from '@/Context/MobileHeader';
 import { useThemeStore } from '@/store/theme';
 import { useShallow } from 'zustand/react/shallow';
 import { useNavigate, useParams } from 'react-router-dom';
-import MockLandData from '@/Data/mock-land.json';
-import { useCropPlanStore } from '@/store/cropPlanStore';
 
-const ViewModel = () => {
+interface ViewModelProps {
+    getPlanById: (planId: number) => Promise<any>;
+}
+
+const ViewModel = ({ getPlanById }: ViewModelProps) => {
     const { id } = useParams();
     const navigate = useNavigate();
     const { setPageTitle } = useThemeStore(
@@ -15,16 +17,6 @@ const ViewModel = () => {
         }))
     );
     const { setShowHeader, setTitle, setupBackButton } = useContext(MobileHeaderContext);
-    const { plan, getPlanById } = useCropPlanStore(
-        useShallow((state) => ({
-            plan: state.plan,
-            getPlanById: state.getPlanById,
-        }))
-    );
-
-    useEffect(() => {
-        console.log('Current plan:', plan);
-    }, [plan]);
 
     const [planDetails, setPlanDetails] = useState<any>(null);
     const [loading, setLoading] = useState<boolean>(false);
@@ -34,7 +26,6 @@ const ViewModel = () => {
         setPageTitle(`รายละเอียดแปลงที่ดิน | DOAE`);
         setShowHeader(true);
         setTitle('รายละเอียดแปลงที่ดิน');
-        // setupBackButton(false, () => {});
         setupBackButton(true, () => {
             setupBackButton(false);
             navigate('/land/my-land');
@@ -75,7 +66,7 @@ const ViewModel = () => {
     }, []);
 
     return {
-        planDetails: plan,
+        planDetails,
         loading,
         error,
         onViewBoundaryMap,

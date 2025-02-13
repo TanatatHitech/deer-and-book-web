@@ -10,14 +10,12 @@ import 'moment/locale/th';
 import IconRedPin from '@/components/Icon/Crop/IconRedPin';
 import IconCompass from '@/components/Icon/Crop/IconCompass';
 import { Icon } from 'leaflet';
-import { useLandStore } from '@/store/landStore';
 moment.locale('th');
 
 const LandDetailView: FC = () => {
     const { data, onViewBoundaryMap, handleBackLand } = useViewModel();
-    const { lands } = useLandStore();
     // Compute zero-based index then add 1
-    const fallbackIndex = lands.findIndex((item: any) => item.id === data?.id) + 2;
+    const fallbackIndex = 2;
 
     return (
         data && (

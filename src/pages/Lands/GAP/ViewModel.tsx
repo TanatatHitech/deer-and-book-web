@@ -4,7 +4,6 @@ import { useThemeStore } from '@/store/theme';
 import { useShallow } from 'zustand/react/shallow';
 import { useNavigate } from 'react-router-dom';
 import MockLandData from '@/Data/mock-lands.json';
-import { useLandStore } from '@/store/landStore';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
@@ -46,32 +45,24 @@ const ViewModel = () => {
         navigate(`/land/${landId}`);
     };
 
-    const { lands, getAllLands, clearState } = useLandStore(
-        useShallow((state) => ({
-            lands: state.lands,
-            getAllLands: state.getAllLands,
-            clearState: state.clearState,
-        }))
-    );
-
     const fetchData = () => {
         setIsLoading(true);
-        getAllLands().then((response) => {
+        // Mock fetch data
+        setTimeout(() => {
             setIsLoading(false);
-            if (!response.success) {
-                const toast = withReactContent(Swal).mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                });
-                toast.fire({
-                    icon: 'error',
-                    title: 'Failed to fetch lands',
-                    padding: '10px 20px',
-                });
-            }
-        });
+            // Handle fetch failure
+            const toast = withReactContent(Swal).mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+            });
+            toast.fire({
+                icon: 'error',
+                title: 'Failed to fetch lands',
+                padding: '10px 20px',
+            });
+        }, 1000);
     };
 
     useEffect(() => {
@@ -83,11 +74,10 @@ const ViewModel = () => {
         return () => {
             setShowHeader(false);
             setTitle('');
-            clearState();
         };
     }, []);
 
-    return { lands, data, isLoading, onViewLand, onclickNewGAP, onclickViewGAP, onclickRenewGAP };
+    return { data, isLoading, onViewLand, onclickNewGAP, onclickViewGAP, onclickRenewGAP };
 };
 
 export default ViewModel;

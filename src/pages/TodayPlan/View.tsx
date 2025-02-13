@@ -2,15 +2,17 @@ import { Fragment, type FC, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PlanItem from '../Components/PlanItem';
 import { formatThaiDateNotime } from '@/utils/format-time';
-import { useCropPlanStore } from '@/store/cropPlanStore';
 import { formatNumberCommasNoDecimal } from '@/utils/format-number';
 
-const TodayPlan: FC = () => {
-    const { getTodayJob, plan } = useCropPlanStore();
+interface TodayPlanProps {
+    plan: any;
+    getTodayJob: () => void;
+}
 
+const TodayPlan: FC<TodayPlanProps> = ({ plan, getTodayJob }) => {
     useEffect(() => {
         getTodayJob();
-    }, []);
+    }, [getTodayJob]);
 
     return (
         <Fragment>

@@ -18,7 +18,6 @@ import IconPencil from '@/components/Icon/IconPencil';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { calculateCropAge } from '@/utils/calculate';
-import { useLandStore } from '@/store/landStore';
 import { convertToJSONPatch } from '@/utils/convertToJSONPatch';
 
 moment.locale('th');

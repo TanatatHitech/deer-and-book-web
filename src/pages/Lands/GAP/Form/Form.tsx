@@ -1,5 +1,4 @@
 import { type FC, useState, useEffect } from 'react';
-import { useLandStore } from '@/store/landStore';
 
 const GAPForm: FC = () => {
     const [formData, setFormData] = useState({
@@ -15,8 +14,6 @@ const GAPForm: FC = () => {
         postalCode: '',
     });
     type FormDataKey = keyof typeof formData;
-
-    const { getActiveLandByID, land } = useLandStore();
 
     const addressFields: { label: string; name: FormDataKey }[] = [
         { label: 'บ้านเลขที่', name: 'houseNo' },
@@ -51,10 +48,6 @@ const GAPForm: FC = () => {
             phone: formatPhoneNumber(prev.phone),
         }));
     }, [formData.phone]);
-
-    useEffect(() => {
-        getActiveLandByID(1);
-    }, [getActiveLandByID]);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();

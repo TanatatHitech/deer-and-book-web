@@ -7,7 +7,6 @@ import { MobileHeaderContext } from '@/Context/MobileHeader';
 import IconCorn from '@/components/Icon/Crop/IconCorn';
 import IconCassava from '@/components/Icon/Crop/IconCassava';
 import MockReciepe from '@/Data/mock-reciepe.json';
-import { useCropPlanStore } from '@/store/cropPlanStore';
 import Swal from 'sweetalert2';
 
 export interface Props {
@@ -24,8 +23,6 @@ const ViewModel = (props: Props) => {
             setPageTitle: state.setPageTitle,
         }))
     );
-
-    const { plans, getAllPlans, clearState } = useCropPlanStore();
 
     const [showSearchPlant, setShowSearchPlant] = useState<boolean>(false);
 
@@ -65,10 +62,6 @@ const ViewModel = (props: Props) => {
 
     const onCloseSearchPlant = () => {
         setShowSearchPlant(false);
-    };
-
-    const deleteCropPlan = (id: any) => {
-        useCropPlanStore.getState().deleteCropPlan(id);
     };
 
     const confirmDeleteCropPlan = (id: any, planName: string) => {
@@ -118,7 +111,6 @@ const ViewModel = (props: Props) => {
 
     useEffect(() => {
         setupPage();
-        getAllPlans();
     }, []);
 
     useEffect(() => {
@@ -133,7 +125,6 @@ const ViewModel = (props: Props) => {
         showSearchPlant,
         cropOptions,
         mobileData,
-        plans,
         onViewPlan,
         onViewDetail,
         onNextStep,
@@ -143,7 +134,6 @@ const ViewModel = (props: Props) => {
         onEditFertilizer,
         onEditPesticide,
         onEditPlan,
-        deleteCropPlan,
         confirmDeleteCropPlan,
     };
 };

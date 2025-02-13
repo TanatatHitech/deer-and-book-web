@@ -4,14 +4,17 @@ import Swal from 'sweetalert2';
 
 import WeedInfectionPlan from './PesticidePlan';
 import useViewModel from '../ViewModel';
-import { useCropPlanStore } from '@/store/cropPlanStore';
 
-const ViewEditPesticide: FC = () => {
+interface ViewEditPesticideProps {
+    getPlanById: (planId: number) => Promise<any>;
+    EditCropPlanPesticide: (planId: number, data: any) => Promise<any>;
+}
+
+const ViewEditPesticide: FC<ViewEditPesticideProps> = ({ getPlanById, EditCropPlanPesticide }) => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const { data, handleChangePesticide, fetchPlanPesticides, PESTICIDE_STATE, preprocessPesticideData } = useViewModel();
+    const { data, handleChangePesticide, fetchPlanPesticides, PESTICIDE_STATE, preprocessPesticideData } = useViewModel({ getPlanById, EditCropPlanPesticide });
     const [weedInfectionRounds, setWeedInfectionRounds] = useState(data.cropPlanPesticides);
-    const { EditCropPlanPesticide } = useCropPlanStore();
 
     useEffect(() => {
         if (id) {

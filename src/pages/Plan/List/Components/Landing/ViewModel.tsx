@@ -7,7 +7,6 @@ import { MobileHeaderContext } from '@/Context/MobileHeader';
 import IconCorn from '@/components/Icon/Crop/IconCorn';
 import IconCassava from '@/components/Icon/Crop/IconCassava';
 import MockPlannedLand from '@/Data/mock-planned-land.json';
-import { useLandStore } from '@/store/landStore';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
@@ -23,14 +22,6 @@ const ViewModel = (props: Props) => {
     const { setPageTitle } = useThemeStore(
         useShallow((state) => ({
             setPageTitle: state.setPageTitle,
-        }))
-    );
-
-    const { lands, getEmptyCropPlanLands, clearState } = useLandStore(
-        useShallow((state) => ({
-            lands: state.lands,
-            getEmptyCropPlanLands: state.getEmptyCropPlanLands,
-            clearState: state.clearState,
         }))
     );
 
@@ -69,23 +60,10 @@ const ViewModel = (props: Props) => {
     const fetchData = () => {
         setIsLoading(true);
 
-        getEmptyCropPlanLands().then((response) => {
+        // Mock fetch data
+        setTimeout(() => {
             setIsLoading(false);
-
-            if (!response.success) {
-                const toast = withReactContent(Swal).mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                });
-                toast.fire({
-                    icon: 'error',
-                    title: 'Failed to fetch lands',
-                    padding: '10px 20px',
-                });
-            }
-        });
+        }, 1000);
     };
 
     const onViewLand = (id: any) => {
@@ -133,18 +111,11 @@ const ViewModel = (props: Props) => {
         fetchData();
     }, []);
 
-    useEffect(() => {
-        return () => {
-            clearState();
-        };
-    }, []);
-
     return {
         t,
         showSearchPlant,
         cropOptions,
         isLoading,
-        lands,
         onViewLand,
         onViewDetail,
         onNextStep,

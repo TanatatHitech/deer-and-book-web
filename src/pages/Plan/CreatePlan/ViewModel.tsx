@@ -5,7 +5,6 @@ import { useShallow } from 'zustand/react/shallow';
 import { useNavigate, useParams } from 'react-router-dom';
 // import MockPlanRound from '@/Data/mock-plan-round.json';
 import { CropPlanCreateForm } from '@/interfaces/cropPlan/create';
-import { useCropPlanStore } from '@/store/cropPlanStore';
 import Swal from 'sweetalert2';
 
 export const INITIAL_STATE: CropPlanCreateForm = {
@@ -36,7 +35,7 @@ const ViewModel = () => {
     const [step, updateStep] = useState(0);
 
     const data: any = INITIAL_STATE;
-    const { createCropPlan } = useCropPlanStore();
+    const { createCropPlan } = {}; // Placeholder for removed useCropPlanStore
 
     const handleChangeFertilizer = (index: number, key: 'fertilizerText' | 'amount' | 'unitId' | 'planDate', value: any) => {
         const newForm = { ...form };

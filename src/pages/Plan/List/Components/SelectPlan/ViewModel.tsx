@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useThemeStore } from '@/store/theme';
-import { useCropPlanStore } from '@/store/cropPlanStore';
 import { useShallow } from 'zustand/react/shallow';
 import { MobileHeaderContext } from '@/Context/MobileHeader';
 import Swal from 'sweetalert2';
@@ -13,24 +12,19 @@ import IconCassava from '@/components/Icon/Crop/IconCassava';
 export interface Props {
     onBack?: () => void;
     onNextStep: (landId: string) => void;
+    lands: any[];
+    getAllLands: () => Promise<any>;
+    clearState: () => void;
 }
 
 const ViewModel = (props: Props) => {
-    const { onNextStep, onBack } = props;
+    const { onNextStep, onBack, lands, getAllLands, clearState } = props;
     const navigate = useNavigate();
     const { t } = useTranslation();
     const { setShowHeader, setTitle } = useContext(MobileHeaderContext);
     const { setPageTitle } = useThemeStore(
         useShallow((state) => ({
             setPageTitle: state.setPageTitle,
-        }))
-    );
-
-    const { lands, getAllLands, clearState } = useCropPlanStore(
-        useShallow((state) => ({
-            lands: state.lands,
-            getAllLands: state.getAllLands,
-            clearState: state.clearState,
         }))
     );
 

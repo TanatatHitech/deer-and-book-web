@@ -1,17 +1,20 @@
 import { FC, useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Import useHistory
-import Swal from 'sweetalert2'; // Import SweetAlert
+import { useParams, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 import FertilizerPlan from './FertilizerPlan';
 import useViewModel from '../ViewModel';
-import { useCropPlanStore } from '@/store/cropPlanStore';
 
-const ViewEditFertilizer: FC = () => {
+interface ViewEditFertilizerProps {
+    getPlanById: (planId: number) => Promise<any>;
+    EditCropPlanFertilizer: (planId: number, data: any) => Promise<any>;
+}
+
+const ViewEditFertilizer: FC<ViewEditFertilizerProps> = ({ getPlanById, EditCropPlanFertilizer }) => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const { data, handleChangeFertilizer, fetchPlanFertilizers, FERTILIZER_STATE, preprocessFertilizerData } = useViewModel();
+    const { data, handleChangeFertilizer, fetchPlanFertilizers, FERTILIZER_STATE, preprocessFertilizerData } = useViewModel({ getPlanById, EditCropPlanFertilizer });
     const [fertilizerRounds, setFertilizerRounds] = useState(data.cropPlanFertilizers);
-    const { EditCropPlanFertilizer } = useCropPlanStore();
 
     useEffect(() => {
         if (id) {

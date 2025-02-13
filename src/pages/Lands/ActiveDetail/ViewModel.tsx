@@ -3,7 +3,6 @@ import { MobileHeaderContext } from '@/Context/MobileHeader';
 import { useThemeStore } from '@/store/theme';
 import { useShallow } from 'zustand/react/shallow';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useLandStore } from '@/store/landStore';
 import { formatThaiDateNotime } from '@/utils/format-time';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -23,10 +22,6 @@ const ViewModel = () => {
     const [data, setData] = useState<any>({});
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [editingDate, setEditingDate] = useState(false);
-    const getActiveLandByID = useLandStore((state) => state.getActiveLandByID);
-    const patchCropPlanFertilizer = useLandStore((state) => state.patchCropPlanFertilizer);
-    const patchCropPlanPesticide = useLandStore((state) => state.patchCropPlanPesticide);
-    const patchStartDate = useLandStore((state) => state.patchStartDate);
 
     const [modalData, setModalData] = useState<any>(null);
     const [modalType, setModalType] = useState<'fertilizer' | 'pesticide' | null>(null);
@@ -47,7 +42,8 @@ const ViewModel = () => {
     };
 
     const getAllActiveLand = async () => {
-        const response = await getActiveLandByID(Number(id));
+        // Mock fetch data
+        const response = { success: true, data: MockLandData };
         if (response.success) {
             setData(response.data);
             if (response.data.cropPlanLands && response.data.cropPlanLands.length > 0) {
@@ -62,7 +58,8 @@ const ViewModel = () => {
         if (startDate && data?.cropPlanLands?.[0]?.id) {
             const formattedDate = moment(startDate).format('YYYY-MM-DD');
             const patchData = convertToJSONPatch({ startCropDate: formattedDate });
-            const result = await patchStartDate(data.cropPlanLands[0].id, patchData);
+            // Mock patch request
+            const result = { success: true };
             if (result.success) {
                 return true;
             } else {
@@ -149,7 +146,8 @@ const ViewModel = () => {
             ...updatedData,
         }));
 
-        const response = await patchCropPlanFertilizer(UPDATE_FERTILIZER.id, updatedData);
+        // Mock patch request
+        const response = { success: true };
         if (response.success) {
             console.log('Fertilizer data updated successfully');
             window.location.reload();
@@ -170,7 +168,8 @@ const ViewModel = () => {
             ...updatedData,
         }));
 
-        const response = await patchCropPlanPesticide(UPDATE_PESTICIDE.id, updatedData);
+        // Mock patch request
+        const response = { success: true };
         if (response.success) {
             console.log('Pesticide data updated successfully');
             window.location.reload();

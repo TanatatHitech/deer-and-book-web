@@ -1,7 +1,6 @@
 import { type FC } from 'react';
 import IconPlusCircle from '@/components/Icon/IconPlusCircle';
 import PlantItem from '@/pages/Components/PlantItem';
-import { useCropPlanStore } from '@/store/cropPlanStore';
 import StartPlanItem from '@/pages/Components/StartPlanItem';
 
 interface PlanListProps {

@@ -4,7 +4,6 @@ import { useThemeStore } from '@/store/theme';
 import { useShallow } from 'zustand/react/shallow';
 import { useNavigate, useParams } from 'react-router-dom';
 import MockLandData from '@/Data/mock-land.json';
-import { useLandStore } from '../../../store/landStore';
 
 const ViewModel = () => {
     const { id } = useParams();
@@ -15,7 +14,6 @@ const ViewModel = () => {
         }))
     );
     const { setShowHeader, setTitle, setupBackButton } = useContext(MobileHeaderContext);
-    const { land, getLand } = useLandStore(useShallow((state) => ({ land: state.land, getLand: state.getLand })));
     const data: any = MockLandData
         ? {
               ...MockLandData,
@@ -42,7 +40,8 @@ const ViewModel = () => {
 
     useEffect(() => {
         setupPage();
-        getLand(Number(id));
+        // Mock fetch data
+        // getLand(Number(id));
     }, [id]);
 
     useEffect(() => {
@@ -53,7 +52,7 @@ const ViewModel = () => {
     }, []);
 
     return {
-        data: land,
+        data,
         onViewBoundaryMap,
         handleBackLand,
     };

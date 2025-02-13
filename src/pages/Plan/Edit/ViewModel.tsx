@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useCropPlanStore } from '@/store/cropPlanStore';
 
 export const FERTILIZER_STATE = [
     { fertilizerText: '', amount: 0.0, planDate: 0 },
@@ -12,6 +11,11 @@ export const PESTICIDE_STATE = [{ pesticideText: '', amount: 0.0, planDate: 0 }]
 interface PlanData {
     cropPlanPesticides: any[];
     cropPlanFertilizers: any[];
+}
+
+interface ViewModelProps {
+    getPlanById: (planId: number) => Promise<any>;
+    EditCropPlanPesticide: (planId: number, data: any) => Promise<any>;
 }
 
 const initialData: PlanData = {
@@ -35,7 +39,7 @@ const preprocessPesticideData = (pesticides: any[]) => {
     }));
 };
 
-export default function useViewModel() {
+export default function useViewModel({ getPlanById, EditCropPlanPesticide }: ViewModelProps) {
     const [data, setData] = useState<PlanData>(initialData);
 
     const handleChangeFertilizer = (index: number, key: string, value: any) => {
@@ -57,7 +61,6 @@ export default function useViewModel() {
     };
 
     const fetchPlanFertilizers = async (planId: number) => {
-        const { getPlanById } = useCropPlanStore.getState();
         const result = await getPlanById(planId);
         if (result.success) {
             const fertilizers = result.data?.cropPlanFertilizers;
@@ -73,7 +76,6 @@ export default function useViewModel() {
     };
 
     const fetchPlanPesticides = async (planId: number) => {
-        const { getPlanById } = useCropPlanStore.getState();
         const result = await getPlanById(planId);
         if (result.success) {
             const pesticides = result.data?.cropPlanPesticides;

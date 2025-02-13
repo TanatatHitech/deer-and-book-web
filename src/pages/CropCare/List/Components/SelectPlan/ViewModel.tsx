@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useThemeStore } from '@/store/theme';
-import { useCropPlanStore } from '@/store/cropPlanStore';
 import { useShallow } from 'zustand/react/shallow';
 import { MobileHeaderContext } from '@/Context/MobileHeader';
 import Swal from 'sweetalert2';
@@ -23,14 +22,6 @@ const ViewModel = (props: Props) => {
     const { setPageTitle } = useThemeStore(
         useShallow((state) => ({
             setPageTitle: state.setPageTitle,
-        }))
-    );
-
-    const { lands, getAllLands, clearState } = useCropPlanStore(
-        useShallow((state) => ({
-            lands: state.lands,
-            getAllLands: state.getAllLands,
-            clearState: state.clearState,
         }))
     );
 

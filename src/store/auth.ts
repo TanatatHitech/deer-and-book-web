@@ -17,7 +17,7 @@ export interface AuthStore {
     // resetPassword: (data: any) => Promise<{ success: boolean; data: any }>;
     // getProfile: () => Promise<{ success: boolean; data: any }>;
     registerFarmer: (data: any) => Promise<{ success: boolean }>;
-    getProfile: () => Promise<{ success: boolean }>; // Add this line
+    getProfile: () => Promise<{ success: boolean }>;
 }
 
 export const useAuthStore = create<AuthStore>((set, get) => ({

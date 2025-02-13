@@ -79,6 +79,8 @@ const ViewModel = () => {
                     // Ensure token is present
                     console.log('success', response.data.token);
                     localStorage.setItem('token', response.data.token);
+                    const token = localStorage.getItem('token');
+                    console.log('newtoken', token);
                     navigate('/home');
                 }
             })
