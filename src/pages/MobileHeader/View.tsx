@@ -16,7 +16,7 @@ const MobileHeader: FC = () => {
                 })}
             >
                 <div className="">
-                    <div className="relative bg-[#eaffeb] flex w-full items-center justify-between px-5 py-2.5 h-16">
+                    <div className="relative bg-crop-primary flex w-full items-center justify-between px-5 py-2.5 h-16">
                         <div className="horizontal-logo flex lg:hidden justify-between items-center">
                             <ul className="flex items-center space-x-2 rtl:space-x-reverse ">
                                 {showBackButton && (
@@ -33,7 +33,7 @@ const MobileHeader: FC = () => {
                         </div>
 
                         <div
-                            className={clsx('font-bold', {
+                            className={clsx('font-bold text-md text-white', {
                                 '-ml-8': showBackButton && !showCustomRightComponent,
                                 '-mr-5': showCustomRightComponent,
                             })}

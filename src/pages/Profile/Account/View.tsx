@@ -44,7 +44,7 @@ const ProfileAccountView: FC = () => {
         <Fragment>
             {/* Mobile Version */}
             <div className="block lg:hidden">
-                <div className="pb-20 lg:pb-0">
+                <div className="pb-20 lg:pb-0 mt-5">
                     <div className="grid grid-cols-12 gap-5">
                         <div className="col-span-12">
                             <div className="min-w-full flex flex-col items-center justify-center gap-3 mb-2">
