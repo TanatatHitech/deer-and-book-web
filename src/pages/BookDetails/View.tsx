@@ -54,7 +54,7 @@ const BookDetailsView: FC = () => {
 
     return (
         <Fragment>
-            <div className="min-h-screen flex flex-col lg:hidden bg-gradient-to-b from-[#B347FD] to-[#6789EE] flex items-center justify-center overflow-scroll">
+            <div className="min-h-screen flex flex-col lg:hidden bg-gradient-to-b from-[#B347FD] to-[#6789EE] items-center justify-center overflow-scroll">
                 {/* Header */}
                 <div className="w-full p-5 flex justify-between items-center">
                     <img style={{ height: 20, width: 20 }} className="cursor-pointer" src="/assets/images/icon/close-button-icon.png" alt="close-button-icon" onClick={() => navigateToHome()}></img>

@@ -29,15 +29,15 @@ const BottomNavigationBar: FC = () => {
             <div className="block lg:hidden fixed bottom-0 left-0 z-50 w-full h-16 bg-gradient-to-b from-[#6789EE] to-[#B347FD] shadow-lg py-auto">
                 <div className="flex flex-row justify-between h-full w-full mx-auto font-medium">
                     <Link to={isActive('home') ? '#' : '/home'} className="inline-flex flex-col h-full w-full">
-                        <button type="button" className="h-full w-full inline-flex flex-col items-center justify-center px-2 hover:bg-green-50 group rounded-lg transition-all">
+                        <button type="button" className="h-full w-full inline-flex flex-col items-center justify-center px-2 group rounded-lg transition-all">
                             <IconMenuDashboard
-                                className={clsx('h-5 w-5 mb-1', {
-                                    'text-crop-primary fill-crop-primary': isActive('home'),
+                                className={clsx('h-8 w-8 mb-1', {
+                                    'text-white': isActive('home'),
                                     'text-gray-300 ': !isActive('home'),
                                 })}
                             />
                             <span
-                                className={clsx(' group-hover:text-crop-primary mt-1', {
+                                className={clsx('  mt-1', {
                                     'text-white font-bold': isActive('home'),
                                     'text-gray-300': !isActive('home'),
                                 })}
@@ -47,34 +47,34 @@ const BottomNavigationBar: FC = () => {
                         </button>
                     </Link>
                     <Link to={isActive('profile') ? '#' : '/profile'} className="inline-flex flex-col h-full w-full ">
-                        <button type="button" className="h-full w-full inline-flex flex-col items-center justify-center 2 hover:bg-green-50 group">
+                        <button type="button" className="h-full w-full inline-flex flex-col items-center justify-center group">
                             <IconUser
-                                className={clsx('h-5 w-5 mb-1', {
-                                    'text-crop-primary': isActive('profile'),
+                                className={clsx('h-8 w-8 mb-1', {
+                                    'text-white': isActive('profile'),
                                     'text-gray-300': !isActive('profile'),
                                 })}
                             />
                             <span
-                                className={clsx(' group-hover:text-crop-primary mt-1', {
-                                    'text-white font-bold': isActive('profile'),
+                                className={clsx(' mt-1', {
+                                    'text-white font-bold ': isActive('profile'),
                                     'text-gray-300': !isActive('profile'),
                                 })}
                             >
-                                โปรไฟล์
+                                User
                             </span>
                         </button>
                     </Link>
                     <Link to="#" onClick={onLogout} className="inline-flex flex-col h-full w-full">
-                        <button type="button" className="h-full w-full inline-flex flex-col items-center justify-center px-2 hover:bg-green-50 group rounded-lg transition-all">
+                        <button type="button" className="h-full w-full inline-flex flex-col items-center justify-center px-2 group rounded-lg transition-all">
                             <IconLogout
-                                className={clsx('h-5 w-5 mb-1', {
+                                className={clsx('h-8 w-8 mb-1', {
                                     'text-crop-primary': isActive('land'),
                                     'text-gray-300': !isActive('land'),
                                 })}
                             />
                             <span
-                                className={clsx(' group-hover:text-crop-primary mt-1', {
-                                    'text-white font-bold': isActive('land'),
+                                className={clsx(' mt-1', {
+                                    'text-crop-primary font-bold': isActive('land'),
                                     'text-gray-300': !isActive('land'),
                                 })}
                             >
