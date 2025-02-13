@@ -35,9 +35,9 @@ const HomeView: FC = () => {
                     </div>
                     <div className="flex flex-col sm:items-center">
                         <div className="px-6 font-bold text-white text-sm my-1">Categories</div>
-                        <div className="flex flex-row overflow-auto no-scrollbar w-full sm:justify-center">
+                        <div className="flex flex-row justify-between overflow-auto no-scrollbar w-full sm:justify-center gap-0">
                             {mockCategories.map((icon, index) => (
-                                <div key={index} className={index === 0 ? 'flex flex-col items-center py-2 ml-5 mr-3' : 'flex flex-col items-center py-2 mx-3'}>
+                                <div key={index} className={'flex flex-col items-center jut py-2'} style={{ minWidth: '80px' }}>
                                     <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
                                         <img style={{ height: 30, width: 30 }} src={icon.icon} alt={icon.name}></img>
                                     </div>
