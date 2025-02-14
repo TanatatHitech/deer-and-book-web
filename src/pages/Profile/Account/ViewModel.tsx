@@ -3,6 +3,7 @@ import { MobileHeaderContext } from '@/Context/MobileHeader';
 import { useNavigate } from 'react-router-dom';
 import { useThemeStore } from '@/store/theme';
 import { useShallow } from 'zustand/react/shallow';
+import { useAuthStore } from '@/store/auth';
 
 const INITIAL_FORM_STATE = {
     name: "User's Name User's Surname",
@@ -23,6 +24,18 @@ const ViewModel = () => {
             setPageTitle: state.setPageTitle,
         }))
     );
+
+    const [profileDetails, setProfileDetails] = useState<any>(null);
+    const { getProfileDetails } = useAuthStore();
+
+    useEffect(() => {
+        getProfileDetails().then((response) => {
+            if (response.success) {
+                setProfileDetails(response.data);
+            }
+        });
+
+    }, [getProfileDetails])
 
     const [viewType, setViewType] = useState<'view' | 'edit'>('view');
     const [formState, setFormState] = useState(INITIAL_FORM_STATE);
@@ -106,6 +119,7 @@ const ViewModel = () => {
         setViewType,
         formState,
         onChangeFormState,
+        profileDetails,
     };
 };
 

@@ -49,12 +49,12 @@ const HomeView: FC = () => {
                         <div className="px-6 font-bold text-white text-sm my-1">Categories</div>
                         <div className="flex flex-row justify-between overflow-auto no-scrollbar w-full sm:justify-center gap-0">
                             {categories.map((icon, index) => (
-                                <div key={index} className={'flex flex-col items-center jut py-2'} style={{ minWidth: '80px' }}
+                                <div key={index} className={'flex flex-col items-center py-2'} style={{ minWidth: '80px' }}
                                     onClick={() => setSelectedCategory(icon.id === selectedCategory ? null : icon.id)} >
                                     <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
                                         <img style={{ height: 30, width: 30 }} src={icon.icon} alt={icon.name}></img>
                                     </div>
-                                    <div className="text-[11px] text-white mt-1 truncate font-bold">{icon.name}</div>
+                                    <div className={icon.id === selectedCategory ? "text-[11px] text-white mt-1 truncate font-extrabold" : "text-[11px] text-white mt-1 truncate font-semibold"}>{icon.name}</div>
                                 </div>
                             ))}
                         </div>

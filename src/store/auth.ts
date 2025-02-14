@@ -8,6 +8,7 @@ export interface AuthStore {
     profile: any;
     error: string | null;
     signinUser: (data: any) => Promise<{ success: boolean; data?: any }>;
+    getProfileDetails: () => Promise<{ success: boolean; data?: any }>;
     // register: (data: any) => Promise<{ success: boolean; data: any }>;
     verify: () => Promise<{ success: boolean }>;
     // verifyRegister: (data: any) => Promise<{ success: boolean; data: any }>;
@@ -33,6 +34,24 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
             })
             .catch((error) => {
                 console.log(error?.response?.data);
+                set({ error: error?.response?.data.message ?? error.message });
+                return { success: false };
+            });
+    },
+    getProfileDetails: async () => {
+        const token = localStorage.getItem('token');
+        return axios
+            .get(`${API_ENDPOINT}/api/profile`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then((response) => {
+                console.log('Profile fetched from API:', response.data);
+                return { success: true, data: response.data.profile };
+            })
+            .catch((error) => {
+                console.error('Error fetching profile:', error);
                 set({ error: error?.response?.data.message ?? error.message });
                 return { success: false };
             });

@@ -1,11 +1,11 @@
-import { type FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 import IconLogout from '@/components/Icon/IconLogout';
 import IconMail from '@/components/Icon/IconMail';
 import IconCreditCard from '@/components/Icon/IconCreditCard';
 import IconStar from '@/components/Icon/IconStar';
 import IconUser from '@/components/Icon/IconUser';
 
-const AccountSettingsList: FC<{ onInformationClick: () => void; navigate: (path: string) => void }> = ({ onInformationClick, navigate }) => {
+const AccountSettingsList: FC<{ onInformationClick: () => void; navigate: (path: string) => void; profileDetails: any }> = ({ onInformationClick, navigate, profileDetails }) => {
     const handleLogout = () => {
         localStorage.removeItem('token');
         navigate('/');
@@ -16,22 +16,22 @@ const AccountSettingsList: FC<{ onInformationClick: () => void; navigate: (path:
             <div className="col-span-12">ข้อมูลส่วนตัว</div>
             <div className="col-span-12">
                 <div className="flex flex-row items-center mx-5">
-                    <IconUser className="fill-crop-primary mr-2" /> : สมชาย ขอทดสอบ
+                    <IconUser className="fill-crop-primary mr-2" /> : {profileDetails?.display_name ?? "Display Name"}
                 </div>
             </div>
             <div className="col-span-12">
                 <div className="flex flex-row items-center mx-5">
-                    <IconMail className="fill-crop-primary mr-2" /> : test@email.com
+                    <IconMail className="fill-crop-primary mr-2" /> : {profileDetails?.email ?? "Email"}
                 </div>
             </div>
             <div className="col-span-12">
                 <div className="flex flex-row items-center mx-5">
-                    <IconCreditCard className=" fill-crop-quinary mr-2" /> : 9999.00 บาท
+                    <IconCreditCard className=" fill-crop-quinary mr-2" /> : {profileDetails?.remaining_credit ?? "email"} บาท
                 </div>
             </div>
             <div className="col-span-12">
                 <div className="flex flex-row items-center mx-5">
-                    <IconStar className=" fill-crop-quinary mr-2" /> : 9999.00 พ้อยต์
+                    <IconStar className=" fill-crop-quinary mr-2" /> : {profileDetails?.point ?? "-"} พ้อยต์
                 </div>
             </div>
             {/* <div className="col-span-12" onClick={onInformationClick}>
