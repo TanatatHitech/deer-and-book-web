@@ -8,6 +8,7 @@ const HomeView: FC = () => {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
     const { books } = useBookStore();
+    const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
 
     useViewModel();
 
@@ -15,14 +16,25 @@ const HomeView: FC = () => {
         navigate(`/book-details/${param}`);
     };
 
-    const mockCategories = [
-        { name: 'Boy Love', icon: '/assets/images/icon/boy-love-icon.png' },
-        { name: 'Girl Love', icon: '/assets/images/icon/girl-love-icon.png' },
-        { name: 'Travel', icon: '/assets/images/icon/travel-icon.png' },
-        { name: 'Healthy', icon: '/assets/images/icon/healthy-icon.png' },
-        { name: 'Food & Drinks', icon: '/assets/images/icon/food-and-drinks-icon.png' },
-        { name: 'Comics', icon: '/assets/images/icon/comics-icon.png' },
+    const categories = [
+        { id: 2, name: 'Boy Love', icon: '/assets/images/icon/boy-love-icon.png' },
+        { id: 3, name: 'Girl Love', icon: '/assets/images/icon/girl-love-icon.png' },
+        { id: 4, name: 'Travel', icon: '/assets/images/icon/travel-icon.png' },
+        { id: 5, name: 'Healthy', icon: '/assets/images/icon/healthy-icon.png' },
+        { id: 6, name: 'Food & Bev', icon: '/assets/images/icon/food-and-drinks-icon.png' },
+        { id: 7, name: 'Comic', icon: '/assets/images/icon/comics-icon.png' },
+        { id: 8, name: 'Learning', icon: '/assets/images/icon/comics-icon.png' },
+        { id: 9, name: 'Business', icon: '/assets/images/icon/comics-icon.png' },
+        { id: 10, name: 'Life Style', icon: '/assets/images/icon/comics-icon.png' },
+        { id: 11, name: 'Magazine', icon: '/assets/images/icon/comics-icon.png' },
     ];
+
+    const filteredBooks = books.filter((book) => {
+        const matchesSearch = book.book_name.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesCategory = selectedCategory === null || book.book_category_id === selectedCategory;
+        return matchesSearch && matchesCategory;
+    });
+
 
     return (
         <Fragment>
@@ -36,8 +48,9 @@ const HomeView: FC = () => {
                     <div className="flex flex-col sm:items-center">
                         <div className="px-6 font-bold text-white text-sm my-1">Categories</div>
                         <div className="flex flex-row justify-between overflow-auto no-scrollbar w-full sm:justify-center gap-0">
-                            {mockCategories.map((icon, index) => (
-                                <div key={index} className={'flex flex-col items-center jut py-2'} style={{ minWidth: '80px' }}>
+                            {categories.map((icon, index) => (
+                                <div key={index} className={'flex flex-col items-center jut py-2'} style={{ minWidth: '80px' }}
+                                    onClick={() => setSelectedCategory(icon.id === selectedCategory ? null : icon.id)} >
                                     <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
                                         <img style={{ height: 30, width: 30 }} src={icon.icon} alt={icon.name}></img>
                                     </div>
@@ -60,7 +73,7 @@ const HomeView: FC = () => {
                     </div>
                 </div>
                 <div className="w-full h-full overflow-y-auto grid grid-cols-2 sm:grid-cols-4 gap-6 p-10 bg-white pb-24 content-start">
-                    {books.map((book) => (
+                    {filteredBooks.map((book) => (
                         <div key={book.id} className="flex flex-col items-center p-3 bg-gray-100 rounded-lg sm:h-60" onClick={() => navigateTo(book.id)}>
                             <p className="text-center font-semibold">{book.book_name}</p>
                             <img src={`https://deerandbook.com/${book.cover_image}`} alt={book.book_category_name} className="mt-2 w-full h-40 rounded-md object-contain" />
