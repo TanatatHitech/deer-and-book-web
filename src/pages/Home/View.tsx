@@ -23,10 +23,10 @@ const HomeView: FC = () => {
         { id: 5, name: 'Healthy', icon: '/assets/images/icon/healthy-icon.png' },
         { id: 6, name: 'Food & Bev', icon: '/assets/images/icon/food-and-drinks-icon.png' },
         { id: 7, name: 'Comic', icon: '/assets/images/icon/comics-icon.png' },
-        { id: 8, name: 'Learning', icon: '/assets/images/icon/comics-icon.png' },
-        { id: 9, name: 'Business', icon: '/assets/images/icon/comics-icon.png' },
-        { id: 10, name: 'Life Style', icon: '/assets/images/icon/comics-icon.png' },
-        { id: 11, name: 'Magazine', icon: '/assets/images/icon/comics-icon.png' },
+        { id: 8, name: 'Learning', icon: '/assets/images/icon/learning-icon.png' },
+        { id: 9, name: 'Business', icon: '/assets/images/icon/business-icon.png' },
+        { id: 10, name: 'Life Style', icon: '/assets/images/icon/lifestyle-icon.png' },
+        { id: 11, name: 'Magazine', icon: '/assets/images/icon/magazine-icon.png' },
     ];
 
     const filteredBooks = books.filter((book) => {
