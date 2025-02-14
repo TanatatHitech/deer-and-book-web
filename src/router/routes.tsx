@@ -13,7 +13,6 @@ import AuthSignInView from '@/pages/Auth/SignIn/View';
 import HomeView from '@/pages/Home/View';
 
 import Register from '@/pages/Register/View';
-import Login from '../pages/Login/View';
 
 import ProfileAccountView from '@/pages/Profile/Account/View';
 import DashboardView from '@/pages/Dashboard/View';
@@ -56,11 +55,6 @@ const routes = [
     {
         path: '/register',
         element: <Register />,
-        layout: 'blank',
-    },
-    {
-        path: '/login',
-        element: <Login />,
         layout: 'blank',
     },
     {
