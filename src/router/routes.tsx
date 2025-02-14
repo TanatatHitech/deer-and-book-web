@@ -15,14 +15,11 @@ import HomeView from '@/pages/Home/View';
 import Register from '@/pages/Register/View';
 import Login from '../pages/Login/View';
 
-import CropCalendar from '@/pages/CropCalendar/View';
-
 import ProfileAccountView from '@/pages/Profile/Account/View';
 import DashboardView from '@/pages/Dashboard/View';
 
 import Nopage from '@/pages/NoPage/View';
 
-import CropCareView from '@/pages/CropCare/List/View';
 import Layouts from '@/pages/Forms/Layouts';
 import BookDetailsView from '@/pages/BookDetails/View';
 import { ProtectedRoute } from './ProtectedRoute';
@@ -72,18 +69,9 @@ const routes = [
         layout: 'blank',
     },
     {
-        path: '/crop-care',
-        element: <CropCareView />,
-    },
-    {
         path: '/land/*',
         element: <Navigate to="/land/my-land" />,
     },
-    {
-        path: '/crop-calendar',
-        element: <CropCalendar />,
-    },
-
     {
         path: '/profile/account',
 

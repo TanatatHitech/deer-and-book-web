@@ -51,7 +51,7 @@ const ProfileAccountView: FC = () => {
                                 <ProfilePicture profilePic={profilePic} onChange={handleProfilePicChange} triggerFileInput={triggerFileInput} />
                                 <div className="font-semibold">{profile.firstName}</div>
                             </div>
-                            <div className="border border-gray-200 text-gray-500 rounded-lg bg-white p-0 py-1">
+                            <div className="border border-gray-200 text-gray-500 rounded-lg bg-white p-0 py-1 mx-2">
                                 {!isInformationSetting && <AccountSettingsList onInformationClick={handleInformationClick} navigate={navigate} />}
                                 {isInformationSetting && (
                                     <div className="px-5 mt-5">
@@ -64,13 +64,13 @@ const ProfileAccountView: FC = () => {
                 </div>
             </div>
             {/* Desktop Version */}
-            <div className="hidden lg:block">
+            {/* <div className="hidden lg:block">
                 <div className="pb-20 lg:pb-0">
                     <div className="grid grid-cols-12 gap-5">
                         <div className="panel col-span-12">
                             <span className="text-crop-primary font-semibold text-lg">ตั้งค่าบัญชีผู้ใช้</span>
                             <div className="grid grid-cols-12 gap-5 mt-2">
-                                <div className="md:col-span-4 xl:col-span-3 panel">
+                                <div className="md:col-span-4 xl:col-span-3 panel ">
                                     <AccountSettingsList onInformationClick={handleInformationClick} navigate={navigate} />
                                 </div>
                                 <div className="md:col-span-8 xl:col-span-9 panel">
@@ -94,7 +94,7 @@ const ProfileAccountView: FC = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </Fragment>
     );
 };
