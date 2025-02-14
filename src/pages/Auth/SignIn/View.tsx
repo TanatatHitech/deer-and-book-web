@@ -10,7 +10,22 @@ import useViewModel from './ViewModel';
 import { clsx } from '@mantine/core';
 
 const View: FC = () => {
-    const { t, currentLanguage, languageList, changeLanguage, isSubmitting, formState, formError, errorMessage, showPassword, setShowPassword, onChangeFormState, submitForm } = useViewModel();
+    const {
+        t,
+        currentLanguage,
+        languageList,
+        changeLanguage,
+        isSubmitting,
+        formState,
+        formError,
+        errorMessage,
+        showPassword,
+        setShowPassword,
+        onChangeFormState,
+        submitForm,
+        rememberMe,
+        handleRememberMe,
+    } = useViewModel();
 
     return (
         <Fragment>
@@ -79,6 +94,13 @@ const View: FC = () => {
                                         </span>
                                     </div>
                                     {formError.password && <div className="text-red-500 text-sm mt-2">{formError.password}</div>}
+                                </div>
+
+                                <div className="flex items-center">
+                                    <input id="rememberMe" type="checkbox" checked={rememberMe} onChange={handleRememberMe} className="form-checkbox" />
+                                    <label htmlFor="rememberMe" className=" mb-0 ml-1">
+                                        Remember Me
+                                    </label>
                                 </div>
 
                                 <div className="flex flex-row items-center justify-between">

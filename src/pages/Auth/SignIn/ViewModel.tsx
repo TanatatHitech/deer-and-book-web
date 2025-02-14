@@ -42,6 +42,7 @@ const ViewModel = () => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [formState, setFormState] = useState<typeof INITIAL_STATE>(INITIAL_STATE);
     const [formError, setFormError] = useState<typeof INITIAL_ERROR>(INITIAL_ERROR);
+    const [rememberMe, setRememberMe] = useState<boolean>(false);
 
     const setupPage = () => {
         setPageTitle(`เข้าสู่ระบบอ่านหนังสือ`);
@@ -87,6 +88,14 @@ const ViewModel = () => {
             .finally(() => {
                 setIsSubmitting(false);
             });
+
+        if (rememberMe) {
+            localStorage.setItem('rememberedEmail', formState.email);
+            localStorage.setItem('rememberedPassword', formState.password);
+        } else {
+            localStorage.removeItem('rememberedEmail');
+            localStorage.removeItem('rememberedPassword');
+        }
     };
 
     const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
@@ -110,6 +119,10 @@ const ViewModel = () => {
         // });
     };
 
+    const handleRememberMe = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setRememberMe(e.target.checked);
+    };
+
     useEffect(() => {
         setupPage();
     }, [i18n.language]);
@@ -121,6 +134,15 @@ const ViewModel = () => {
     useEffect(() => {
         if (!isFetchVerified.current) {
             handleVerifyAuth();
+        }
+    }, []);
+
+    useEffect(() => {
+        const savedEmail = localStorage.getItem('rememberedEmail');
+        const savedPassword = localStorage.getItem('rememberedPassword');
+        if (savedEmail && savedPassword) {
+            setFormState({ email: savedEmail, password: savedPassword });
+            setRememberMe(true);
         }
     }, []);
 
@@ -137,6 +159,8 @@ const ViewModel = () => {
         setShowPassword,
         onChangeFormState,
         submitForm,
+        rememberMe,
+        handleRememberMe,
     };
 };
 
