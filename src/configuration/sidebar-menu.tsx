@@ -57,7 +57,7 @@ export const SidebarMenu: any[] = [
     },
     {
         key: 'gap',
-        title: 'GAP +',
+        title: '',
         path: '/land/gap',
         icon: IconStar,
     },

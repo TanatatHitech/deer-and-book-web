@@ -105,7 +105,7 @@ const Login = () => {
                         <div className="mx-auto w-full max-w-[440px]">
                             <div className="mb-32">
                                 <h1 className="text-2xl font-semibold !leading-snug text-white md:text-2xl">Welcome to</h1>
-                                <p className="text-4xl font-semibold leading-normal text-green-600">GAP +</p>
+                                <p className="text-4xl font-semibold leading-normal text-green-600"></p>
                             </div>
                             <p className="text-base font-regular leading-normal text-white">Make easy farming with fast delivery at your door.</p>
                             {/* <form className="space-y-5 " onSubmit={submitForm}>

@@ -1,17 +1,6 @@
-import { Fragment, type FC, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import IconUser from '@/components/Icon/IconUser';
-import IconMapPin from '@/components/Icon/IconMapPin';
-import PlanItem from '../Components/PlanItem';
-import IconCalendar from '@/components/Icon/IconCalendar';
-import IconSearch from '@/components/Icon/IconSearch';
-import { formatThaiDateNotime, formatThaiDateNoDay, formatThaiDateOnlyDay } from '@/utils/format-time';
-import { formatNumberCommasNoDecimal } from '@/utils/format-number';
-
+import { Fragment, type FC } from 'react';
 import useViewModel from './ViewModel';
 import { useNavigate } from 'react-router-dom';
-
-import { FaSearch, FaHome, FaUser, FaSignOutAlt } from 'react-icons/fa';
 
 const BookDetailsView: FC = () => {
     const { id, bookDetails, handleOpenSlackRoom } = useViewModel();
