@@ -17,12 +17,12 @@ const ViewModel = () => {
         }
     }, [id, getBookById]);
 
-    const slackDeepLink = 'exp+deer-and-book-pdf-reader:expo-development-client?url=http%3A%2F%2F192.168.1.128%3A8081';
+    const AppDeepLink = 'exp+deer-and-book-pdf-reader://expo-development-client/?url=http%3A%2F%2F192.168.1.108%3A8081';
     const fallbackUrl = 'https://play.google.com/store/apps/details?id=com.Slack';
 
-    const handleOpenSlackRoom = () => {
+    const handleOpenApp = () => {
         const link = document.createElement('a');
-        link.href = slackDeepLink;
+        link.href = AppDeepLink;
         link.style.display = 'none';
         document.body.appendChild(link);
         link.click();
@@ -35,7 +35,7 @@ const ViewModel = () => {
     return {
         id,
         bookDetails,
-        handleOpenSlackRoom,
+        handleOpenApp,
     };
 };
 
