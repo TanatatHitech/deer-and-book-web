@@ -3,7 +3,7 @@ import useViewModel from './ViewModel';
 import { useNavigate } from 'react-router-dom';
 
 const BookDetailsView: FC = () => {
-    const { id, bookDetails, handleOpenSlackRoom } = useViewModel();
+    const { id, bookDetails, handleOpenApp } = useViewModel();
     const navigate = useNavigate();
 
     const navigateToHome = () => {
@@ -96,7 +96,7 @@ const BookDetailsView: FC = () => {
                             </button>
 
                             {/* Read Button */}
-                            <button className="px-6 py-2 bg-gradient-to-r from-[#B347FD] to-[#7B77F2] text-white font-bold rounded-full shadow-lg" onClick={() => handleOpenSlackRoom()}>
+                            <button className="px-6 py-2 bg-gradient-to-r from-[#B347FD] to-[#7B77F2] text-white font-bold rounded-full shadow-lg" onClick={() => handleOpenApp()}>
                                 Read
                             </button>
                         </div>
