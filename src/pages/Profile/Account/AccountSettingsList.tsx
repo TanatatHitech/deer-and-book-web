@@ -26,7 +26,7 @@ const AccountSettingsList: FC<{ onInformationClick: () => void; navigate: (path:
             </div>
             <div className="col-span-12">
                 <div className="flex flex-row items-center mx-5">
-                    <IconCreditCard className=" fill-crop-quinary mr-2" /> : {profileDetails?.remaining_credit ?? "email"} บาท
+                    <IconCreditCard className=" fill-crop-quinary mr-2" /> : {profileDetails?.remaining_credit ?? "-"} บาท
                 </div>
             </div>
             <div className="col-span-12">
