@@ -1,39 +1,9 @@
-import { Fragment, type FC, useEffect, useState } from 'react';
+import { Fragment, type FC } from 'react';
 import useViewModel from './ViewModel';
-import { useNavigate } from 'react-router-dom';
-import { useBookStore } from '@/store/bookStore';
 
 const HomeView: FC = () => {
     console.log('HomeView component rendered');
-    const navigate = useNavigate();
-    const [searchTerm, setSearchTerm] = useState('');
-    const { books } = useBookStore();
-    const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
-
-    useViewModel();
-
-    const navigateTo = (param: number) => {
-        navigate(`/book-details/${param}`);
-    };
-
-    const categories = [
-        { id: 2, name: 'Boy Love', icon: '/assets/images/icon/boy-love-icon.png' },
-        { id: 3, name: 'Girl Love', icon: '/assets/images/icon/girl-love-icon.png' },
-        { id: 4, name: 'Travel', icon: '/assets/images/icon/travel-icon.png' },
-        { id: 5, name: 'Healthy', icon: '/assets/images/icon/healthy-icon.png' },
-        { id: 6, name: 'Food & Bev', icon: '/assets/images/icon/food-and-drinks-icon.png' },
-        { id: 7, name: 'Comic', icon: '/assets/images/icon/comics-icon.png' },
-        { id: 8, name: 'Learning', icon: '/assets/images/icon/learning-icon.png' },
-        { id: 9, name: 'Business', icon: '/assets/images/icon/business-icon.png' },
-        { id: 10, name: 'Life Style', icon: '/assets/images/icon/lifestyle-icon.png' },
-        { id: 11, name: 'Magazine', icon: '/assets/images/icon/magazine-icon.png' },
-    ];
-
-    const filteredBooks = books.filter((book) => {
-        const matchesSearch = book.book_name.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesCategory = selectedCategory === null || book.book_category_id === selectedCategory;
-        return matchesSearch && matchesCategory;
-    });
+    const { categories, navigateTo, searchTerm, setSearchTerm, selectedCategory, setSelectedCategory, filteredBooks } = useViewModel();
 
     return (
         <Fragment>
@@ -79,11 +49,11 @@ const HomeView: FC = () => {
                 </div>
                 <div className="w-full h-full overflow-y-auto grid grid-cols-2 sm:grid-cols-4 gap-6 p-10 bg-white pb-24 content-start">
                     {filteredBooks.length === 0 ? (
-                        <p className="text-center w-full col-span-2 sm:col-span-4">ไม่มีหนังสือ</p>
+                        <p className="text-center w-full col-span-2 sm:col-span-4">ไม่มีหนังสือที่ค้นหา</p>
                     ) : (
                         filteredBooks.map((book) => (
                             <div key={book.id} className="flex flex-col items-center p-3 bg-gray-100 rounded-lg sm:h-60" onClick={() => navigateTo(book.id)}>
-                                <p className="text-center font-semibold">{book.book_name}</p>
+                                <p className="text-center font-semibold line-clamp-2">{book.book_name}</p>
                                 <img src={`https://deerandbook.com/${book.cover_image}`} alt={book.book_category_name} className="mt-2 w-full h-40 rounded-md object-contain" />
                             </div>
                         ))
