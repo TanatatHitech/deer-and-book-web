@@ -35,7 +35,6 @@ const HomeView: FC = () => {
         return matchesSearch && matchesCategory;
     });
 
-
     return (
         <Fragment>
             <div className="h-screen flex flex-col lg:hidden">
@@ -49,12 +48,18 @@ const HomeView: FC = () => {
                         <div className="px-6 font-bold text-white text-sm my-1">Categories</div>
                         <div className="flex flex-row justify-between overflow-auto no-scrollbar w-full sm:justify-center gap-0">
                             {categories.map((icon, index) => (
-                                <div key={index} className={'flex flex-col items-center py-2'} style={{ minWidth: '80px' }}
-                                    onClick={() => setSelectedCategory(icon.id === selectedCategory ? null : icon.id)} >
+                                <div
+                                    key={index}
+                                    className={'flex flex-col items-center py-2'}
+                                    style={{ minWidth: '80px' }}
+                                    onClick={() => setSelectedCategory(icon.id === selectedCategory ? null : icon.id)}
+                                >
                                     <div style={{ height: 47, width: 47 }} className="rounded-full bg-dark-light shadow flex items-center justify-center">
                                         <img style={{ height: 30, width: 30 }} src={icon.icon} alt={icon.name}></img>
                                     </div>
-                                    <div className={icon.id === selectedCategory ? "text-[11px] text-white mt-1 truncate font-extrabold" : "text-[11px] text-white mt-1 truncate font-semibold"}>{icon.name}</div>
+                                    <div className={icon.id === selectedCategory ? 'text-[11px] text-white mt-1 truncate font-extrabold' : 'text-[11px] text-white mt-1 truncate font-semibold'}>
+                                        {icon.name}
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -73,12 +78,16 @@ const HomeView: FC = () => {
                     </div>
                 </div>
                 <div className="w-full h-full overflow-y-auto grid grid-cols-2 sm:grid-cols-4 gap-6 p-10 bg-white pb-24 content-start">
-                    {filteredBooks.map((book) => (
-                        <div key={book.id} className="flex flex-col items-center p-3 bg-gray-100 rounded-lg sm:h-60" onClick={() => navigateTo(book.id)}>
-                            <p className="text-center font-semibold">{book.book_name}</p>
-                            <img src={`https://deerandbook.com/${book.cover_image}`} alt={book.book_category_name} className="mt-2 w-full h-40 rounded-md object-contain" />
-                        </div>
-                    ))}
+                    {filteredBooks.length === 0 ? (
+                        <p className="text-center w-full col-span-2 sm:col-span-4">ไม่มีหนังสือ</p>
+                    ) : (
+                        filteredBooks.map((book) => (
+                            <div key={book.id} className="flex flex-col items-center p-3 bg-gray-100 rounded-lg sm:h-60" onClick={() => navigateTo(book.id)}>
+                                <p className="text-center font-semibold">{book.book_name}</p>
+                                <img src={`https://deerandbook.com/${book.cover_image}`} alt={book.book_category_name} className="mt-2 w-full h-40 rounded-md object-contain" />
+                            </div>
+                        ))
+                    )}
                 </div>
             </div>
             <div className="lg:block hidden">
