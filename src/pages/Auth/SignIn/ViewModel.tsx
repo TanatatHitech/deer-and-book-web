@@ -78,10 +78,10 @@ const ViewModel = () => {
             .then((response: any) => {
                 if (response.success && response.data.token) {
                     // Ensure token is present
-                    console.log('success', response.data.token);
+
                     localStorage.setItem('token', response.data.token);
                     const token = localStorage.getItem('token');
-                    console.log('newtoken', token);
+                    
                     navigate('/home');
                 }
             })

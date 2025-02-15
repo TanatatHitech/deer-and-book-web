@@ -3,7 +3,7 @@ import { useBookStore } from '@/store/bookStore';
 import { useNavigate } from 'react-router-dom';
 
 export const categories = [
-    { id: 1, name: 'All Categories', icon: '/assets/images/icon/all-cat.png' },
+    { id: 1, name: 'All Books', icon: '/assets/images/icon/all-cat.png' },
     { id: 2, name: 'Boy Love', icon: '/assets/images/icon/boy-love-icon.png' },
     { id: 3, name: 'Girl Love', icon: '/assets/images/icon/girl-love-icon.png' },
     { id: 4, name: 'Travel', icon: '/assets/images/icon/travel-icon.png' },
@@ -21,6 +21,13 @@ const ViewModel = () => {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
+
+    const handleCategoryChange = (categoryId: number | null) => {
+        setSelectedCategory(categoryId);
+        if (categoryId === 1) {
+            setSearchTerm('');
+        }
+    };
 
     const setupMainWrapperPadding = () => {
         const element = document.querySelector('#content-wrapper');
@@ -62,8 +69,8 @@ const ViewModel = () => {
 
     const filteredBooks = books.filter((book) => {
         const matchesSearch = book.book_name.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesCategory = selectedCategory === null || selectedCategory === 1 || book.book_category_id === selectedCategory;
-        return matchesSearch && matchesCategory;
+        const matchesCategory = selectedCategory === null || book.book_category_id === selectedCategory;
+        return matchesSearch && (selectedCategory === 1 || matchesCategory);
     });
 
     return {
@@ -72,7 +79,7 @@ const ViewModel = () => {
         searchTerm,
         setSearchTerm,
         selectedCategory,
-        setSelectedCategory,
+        setSelectedCategory: handleCategoryChange,
         filteredBooks,
     };
 };

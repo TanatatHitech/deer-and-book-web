@@ -47,7 +47,6 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
                 },
             })
             .then((response) => {
-                console.log('Profile fetched from API:', response.data);
                 return { success: true, data: response.data.profile };
             })
             .catch((error) => {

@@ -15,7 +15,6 @@ export const useBookStore = create<BookStore>((set) => ({
     books: [],
     error: null,
     getAllBooks: async () => {
-        console.log('getAllBooks called');
         const token = localStorage.getItem('token');
         return axios
             .get(`${API_ENDPOINT}/api/books`, {
@@ -24,19 +23,16 @@ export const useBookStore = create<BookStore>((set) => ({
                 },
             })
             .then((response) => {
-                console.log('Books fetched from API:', response.data);
                 set({ books: Array.isArray(response.data.books) ? response.data.books : [] });
-                console.log('Books state updated:', Array.isArray(response.data.books) ? response.data.books : []);
+
                 return { success: true, data: response.data.books };
             })
             .catch((error) => {
-                console.error('Error fetching books:', error);
                 set({ error: error?.response?.data.message ?? error.message });
                 return { success: false };
             });
     },
     getBookById: async (id) => {
-        console.log('getBookById called with id:', id);
         const token = localStorage.getItem('token');
         return axios
             .get(`${API_ENDPOINT}/api/book/${id}`, {
@@ -45,11 +41,9 @@ export const useBookStore = create<BookStore>((set) => ({
                 },
             })
             .then((response) => {
-                console.log('Book fetched from API:', response.data);
                 return { success: true, data: response.data.book };
             })
             .catch((error) => {
-                console.error('Error fetching book:', error);
                 set({ error: error?.response?.data.message ?? error.message });
                 return { success: false };
             });

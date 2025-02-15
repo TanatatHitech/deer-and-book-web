@@ -2,8 +2,12 @@ import { Fragment, type FC } from 'react';
 import useViewModel from './ViewModel';
 
 const HomeView: FC = () => {
-    console.log('HomeView component rendered');
     const { categories, navigateTo, searchTerm, setSearchTerm, selectedCategory, setSelectedCategory, filteredBooks } = useViewModel();
+
+    const handleCategoryChange = (categoryId: string | null) => {
+        //@ts-ignore
+        setSelectedCategory(categoryId);
+    };
 
     return (
         <Fragment>
@@ -22,9 +26,17 @@ const HomeView: FC = () => {
                                     key={index}
                                     className={'flex flex-col items-center py-2'}
                                     style={{ minWidth: '80px' }}
-                                    onClick={() => setSelectedCategory(icon.id === selectedCategory ? null : icon.id)}
+                                    // @ts-ignore
+                                    onClick={() => handleCategoryChange(icon.id === selectedCategory ? null : icon.id)}
                                 >
-                                    <div style={{ height: 47, width: 47 }} className={icon.id === selectedCategory?"rounded-full bg-dark-light shadow flex items-center justify-center border-2 border-pink-300":"rounded-full bg-dark-light shadow flex items-center justify-center"}>
+                                    <div
+                                        style={{ height: 47, width: 47 }}
+                                        className={
+                                            icon.id === selectedCategory
+                                                ? 'rounded-full bg-dark-light shadow flex items-center justify-center border-2 border-pink-300'
+                                                : 'rounded-full bg-dark-light shadow flex items-center justify-center'
+                                        }
+                                    >
                                         <img style={{ height: 30, width: 30 }} src={icon.icon} alt={icon.name}></img>
                                     </div>
                                     <div className={icon.id === selectedCategory ? 'text-[11px] text-white mt-1 truncate font-extrabold' : 'text-[11px] text-white mt-1 truncate font-semibold'}>
