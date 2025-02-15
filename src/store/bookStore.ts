@@ -19,8 +19,10 @@ export const useBookStore = create<BookStore>((set) => ({
         return axios
             .get(`${API_ENDPOINT}/api/books`, {
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                    "Authorization": `Bearer ${token}`,
+                    "ngrok-skip-browser-warning": true
                 },
+                withCredentials: false,
             })
             .then((response) => {
                 set({ books: Array.isArray(response.data.books) ? response.data.books : [] });
@@ -37,8 +39,10 @@ export const useBookStore = create<BookStore>((set) => ({
         return axios
             .get(`${API_ENDPOINT}/api/book/${id}`, {
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                    "Authorization": `Bearer ${token}`,
+                    "ngrok-skip-browser-warning": true,
                 },
+                withCredentials: false,
             })
             .then((response) => {
                 return { success: true, data: response.data.book };
