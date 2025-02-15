@@ -22,13 +22,13 @@ const ViewModel = () => {
 
     const handleOpenApp = () => {
         const link = document.createElement('a');
-        link.href = AppDeepLink;
+        link.href = `${AppDeepLink}&slug=${bookDetails.file_path}`;
         link.style.display = 'none';
         document.body.appendChild(link);
         link.click();
-
+        console.log('link', link);
         setTimeout(() => {
-            window.location.href = fallbackUrl;
+            window.open(fallbackUrl, '_blank');
         }, 1000);
     };
 
