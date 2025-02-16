@@ -1,6 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import { useBookStore } from '@/store/bookStore';
 import { useNavigate } from 'react-router-dom';
+import { MobileHeaderContext } from '@/Context/MobileHeader';
+import { useThemeStore } from '@/store/theme';
 
 export const categories = [
     { id: 1, name: 'All Books', icon: '/assets/images/icon/all-cat.png' },
@@ -17,15 +20,29 @@ export const categories = [
 ];
 
 const ViewModel = () => {
+    const { setShowHeader, setTitle, setupBackButton } = useContext(MobileHeaderContext);
+    const { setPageTitle } = useThemeStore(
+        useShallow((state) => ({
+            setPageTitle: state.setPageTitle,
+        }))
+    );
     const { getAllBooks, setBooks, books } = useBookStore();
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
 
+    const setupPage = () => {
+        setPageTitle(`Home`);
+        setShowHeader(false);
+        setTitle('หน้าหลัก');
+    };
+
     const handleCategoryChange = (categoryId: number | null) => {
-        setSelectedCategory(categoryId);
         if (categoryId === 1) {
+            setSelectedCategory(1);
             setSearchTerm('');
+        } else {
+            setSelectedCategory(categoryId);
         }
     };
 
@@ -45,6 +62,7 @@ const ViewModel = () => {
 
     useEffect(() => {
         setupMainWrapperPadding();
+        setupPage();
     }, []);
 
     useEffect(() => {

@@ -34,8 +34,7 @@ const ViewModel = () => {
                 setProfileDetails(response.data);
             }
         });
-
-    }, [getProfileDetails])
+    }, [getProfileDetails]);
 
     const [viewType, setViewType] = useState<'view' | 'edit'>('view');
     const [formState, setFormState] = useState(INITIAL_FORM_STATE);
@@ -84,7 +83,7 @@ const ViewModel = () => {
     ];
 
     const setupPage = () => {
-        setPageTitle(`Account | DOAE`);
+        setPageTitle(`Account `);
         setShowHeader(true);
         setTitle('โปรไฟล์');
         setupBackButton(true, () => {

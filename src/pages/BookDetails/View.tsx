@@ -13,8 +13,14 @@ const BookDetailsView: FC = () => {
         window.open(`https://deerandbook.com/book/${slug}`, '_blank');
     };
 
+    const LoadingAnimation: FC = () => <div className="text-white text-lg font-semibold animate-pulse">Loading...</div>;
+
     if (!bookDetails) {
-        return <div>Loading...</div>;
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#B347FD] to-[#6789EE]">
+                <LoadingAnimation />
+            </div>
+        );
     }
 
     const formatDate = (dateString: string) => {

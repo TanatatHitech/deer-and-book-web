@@ -6,7 +6,12 @@ const HomeView: FC = () => {
 
     const handleCategoryChange = (categoryId: string | null) => {
         //@ts-ignore
-        setSelectedCategory(categoryId);
+        if (categoryId === 1) {
+            setSelectedCategory(1);
+        } else {
+            //@ts-ignore
+            setSelectedCategory(categoryId);
+        }
     };
 
     return (
