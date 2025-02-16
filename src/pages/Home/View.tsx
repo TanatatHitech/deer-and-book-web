@@ -15,7 +15,7 @@ const HomeView: FC = () => {
                 <div className="flex flex-col h-72 bg-gradient-to-b from-[#B347FD] to-[#6789EE] rounded-b-3xl">
                     <div className="flex items-center justify-center h-24">
                         <div className="flex h-12">
-                            <img src="/assets/images/icon/logo.png" alt="logo"></img>
+                            <img src="/assets/images/icon/logo-white.png" alt="logo" className="h-20 w-auto" />
                         </div>
                     </div>
                     <div className="flex flex-col sm:items-center">

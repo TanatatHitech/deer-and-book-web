@@ -36,12 +36,13 @@ const View: FC = () => {
                         <div className="mx-auto w-full max-w-[440px]">
                             {/* <img src="/assets/crop/logo/logo.svg" alt="Main Logo" className="block lg:hidden h-36 lg:h-48 lg:mb-7 select-none pointer-events-none mx-auto" /> */}
                             <div className="mb-10">
-                                <div className="flex flex-row justify-between">
-                                    <h1 className="text-3xl font-extrabold !leading-snug text-crop-primary md:text-3xl mb-3 uppercase">Deer and Book Login</h1>
+                                <div className="flex flex-col justify-center items-center">
+                                    <img src="/assets/images/icon/logo.png" alt="logo" className="h-20 w-auto mb-2" />
+                                    {/* <h1 className="text-3xl font-extrabold !leading-snug text-crop-primary md:text-3xl mb-3 uppercase">Deer and Book Login</h1> */}
                                     {/* {errorMessage && <div className="text-red-500 text-sm">{errorMessage}</div>} */}
                                 </div>
 
-                                <p className="text-base font-bold leading-normal text-white-dark">เข้าสู่ระบบอ่านหนังสือ</p>
+                                <p className="text-base text-center font-bold leading-normal text-white-dark">เข้าสู่ระบบอ่านหนังสือ</p>
                             </div>
                             <form className="space-y-5 dark:text-white" onSubmit={submitForm}>
                                 <div>
