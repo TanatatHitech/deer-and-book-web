@@ -67,36 +67,45 @@ const BookDetailsView: FC = () => {
 
                         {/* Book Overview */}
                         <h4 className="text-black font-bold mt-6">Book Overview</h4>
-                        <p className="text-[#979797] text-sm mt-2 font-semibold">{bookDetails.description}</p>
+                        <p className="text-[#979797] text-sm mt-2 font-semibold">{bookDetails.description || 'ไม่พบข้อมูลหนังสือ'}</p>
 
                         {/* Book Info */}
                         <div className="grid grid-cols-2 gap-4 mt-4 text-sm">
                             <div>
                                 <p className="font-semibold bg-gradient-to-l from-[#AB4EFD] to-[#7B77F2] bg-clip-text text-transparent">Publisher</p>
-                                <p className="text-[#979797] font-medium">{bookDetails.author_name}</p>
+                                <p className="text-[#979797] font-medium">{bookDetails.author_name || 'ไม่พบชื่อผู้เขียน'}</p>
                             </div>
+                            {bookDetails.model_name && (
+                                <div>
+                                    <p className="font-semibold bg-gradient-to-l from-[#AB4EFD] to-[#7B77F2] bg-clip-text text-transparent">Model name</p>
+                                    <p className="text-[#979797] font-medium">{bookDetails.model_name || 'ไม่พบข้อมูลหน้า'}</p>
+                                </div>
+                            )}
                             <div>
                                 <p className="font-semibold bg-gradient-to-l from-[#AB4EFD] to-[#7B77F2] bg-clip-text text-transparent">Page</p>
-                                <p className="text-[#979797] font-medium">{bookDetails.pages}</p>
+                                <p className="text-[#979797] font-medium">{bookDetails.pages || 'ไม่พบข้อมูลหน้า'}</p>
                             </div>
                             <div>
                                 <p className="font-semibold bg-gradient-to-l from-[#AB4EFD] to-[#7B77F2] bg-clip-text text-transparent">Update</p>
-                                <p className="text-[#979797] font-medium">{formatDate(bookDetails.update_date)}</p>
+                                <p className="text-[#979797] font-medium">{formatDate(bookDetails.update_date) || 'ไม่พบข้อมูล'}</p>
                             </div>
                             <div>
                                 <p className="font-semibold bg-gradient-to-l from-[#AB4EFD] to-[#7B77F2] bg-clip-text text-transparent">Release date</p>
-                                <p className="text-[#979797] font-medium">{formatDate(bookDetails.release_date)}</p>
+                                <p className="text-[#979797] font-medium">{formatDate(bookDetails.release_date) || 'ไม่พบข้อมูล'}</p>
                             </div>
                             <div>
                                 <p className="font-semibold bg-gradient-to-l from-[#AB4EFD] to-[#7B77F2] bg-clip-text text-transparent">File size</p>
-                                <p className="text-[#979797] font-medium">{bookDetails.file_size} MB.</p>
+                                <p className="text-[#979797] font-medium">{bookDetails.file_size || 'ไม่พบข้อมูล'} MB.</p>
                             </div>
                         </div>
 
                         {/* Buttons */}
                         <div className="flex justify-between items-center mt-10 mb-4">
                             {/* Watch Video */}
-                            <button className="flex items-center space-x-2 text-[#864CFC] font-semibold">
+                            <button
+                                className="flex items-center space-x-2 text-[#864CFC] font-semibold bg-white border border-gray-400 rounded-full px-4 py-2 shadow-none"
+                                onClick={() => handleOpenApp()}
+                            >
                                 <img style={{ height: 20, width: 20 }} className="cursor-pointer" src="/assets/images/icon/play-button-icon.png" alt="play-button-icon"></img>
                                 <span>Watch Video</span>
                             </button>
