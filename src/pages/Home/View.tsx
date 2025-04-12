@@ -70,7 +70,7 @@ const HomeView: FC = () => {
                     ) : (
                         filteredBooks.map((book) => (
                             <div key={book.id} className="flex flex-col items-center p-3 bg-gray-100 rounded-lg sm:h-60" onClick={() => navigateTo(book.id)}>
-                                <p className="text-center font-semibold line-clamp-2">{book.book_name}</p>
+                                <p className="text-center font-semibold line-clamp-2 h-10">{book.book_name}</p>
                                 <img src={`https://deerandbook.com/${book.cover_image}`} alt={book.book_category_name} className="mt-2 w-full h-40 rounded-md object-contain" />
                             </div>
                         ))
