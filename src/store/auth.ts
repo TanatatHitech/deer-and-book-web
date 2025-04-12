@@ -46,7 +46,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
                     "Authorization": `Bearer ${token}`,
                     // "ngrok-skip-browser-warning": true,
                 },
-                withCredentials: true
+                withCredentials: false
             })
             .then((response) => {
                 return { success: true, data: response.data.profile };
