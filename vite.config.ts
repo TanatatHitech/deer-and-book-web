@@ -12,4 +12,13 @@ export default defineConfig({
             '@': path.resolve(__dirname, './src'),
         },
     },
+    build: {
+        outDir: 'dist', // Where the build files go
+        emptyOutDir: true,
+    },
+    // Optional: if you're doing SSR or middleware mode
+    server: {
+        port: 3000,
+        open: true, // opens the browser
+    },
 });
