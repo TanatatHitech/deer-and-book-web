@@ -7,6 +7,7 @@ import { useThemeStore } from '@/store/theme';
 
 export const categories = [
     { id: 1, name: 'All Books', icon: '/assets/images/icon/all-cat.png' },
+    { id: 11, name: 'Magazine', icon: '/assets/images/icon/magazine-icon.png' },
     { id: 2, name: 'Boy Love', icon: '/assets/images/icon/boy-love-icon.png' },
     { id: 3, name: 'Girl Love', icon: '/assets/images/icon/girl-love-icon.png' },
     { id: 4, name: 'Travel', icon: '/assets/images/icon/travel-icon.png' },
@@ -16,7 +17,6 @@ export const categories = [
     { id: 8, name: 'Learning', icon: '/assets/images/icon/learning-icon.png' },
     { id: 9, name: 'Business', icon: '/assets/images/icon/business-icon.png' },
     { id: 10, name: 'Life Style', icon: '/assets/images/icon/lifestyle-icon.png' },
-    { id: 11, name: 'Magazine', icon: '/assets/images/icon/magazine-icon.png' },
 ];
 
 const ViewModel = () => {
