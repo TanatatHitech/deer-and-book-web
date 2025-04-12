@@ -26,7 +26,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
     error: null,
     signinUser: async (data) => {
         return axios
-            .post(`${API_ENDPOINT}/api/login`, data, { withCredentials: false })
+            .post(`${API_ENDPOINT}/api/login`, data, { withCredentials: true })
             .then((response) => {
                 const { user } = response.data;
                 set({ profile: user });
@@ -44,9 +44,9 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
             .get(`${API_ENDPOINT}/api/profile`, {
                 headers: {
                     "Authorization": `Bearer ${token}`,
-                    "ngrok-skip-browser-warning": true,
+                    // "ngrok-skip-browser-warning": true,
                 },
-                withCredentials: false
+                withCredentials: true
             })
             .then((response) => {
                 return { success: true, data: response.data.profile };

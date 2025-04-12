@@ -22,7 +22,7 @@ export const useBookStore = create<BookStore>((set) => ({
                     "Authorization": `Bearer ${token}`,
                     "ngrok-skip-browser-warning": true
                 },
-                withCredentials: false,
+                withCredentials: true,
             })
             .then((response) => {
                 set({ books: Array.isArray(response.data.books) ? response.data.books : [] });
@@ -42,7 +42,7 @@ export const useBookStore = create<BookStore>((set) => ({
                     "Authorization": `Bearer ${token}`,
                     "ngrok-skip-browser-warning": true,
                 },
-                withCredentials: false,
+                withCredentials: true,
             })
             .then((response) => {
                 return { success: true, data: response.data.book };
