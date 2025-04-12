@@ -26,7 +26,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
     error: null,
     signinUser: async (data) => {
         return axios
-            .post(`${API_ENDPOINT}/api/login`, data, { withCredentials: true })
+            .post(`${API_ENDPOINT}/api/login`, data, { withCredentials: false })
             .then((response) => {
                 const { user } = response.data;
                 set({ profile: user });
