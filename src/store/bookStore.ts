@@ -20,7 +20,7 @@ export const useBookStore = create<BookStore>((set) => ({
             .get(`${API_ENDPOINT}/api/books`, {
                 headers: {
                     "Authorization": `Bearer ${token}`,
-                    "ngrok-skip-browser-warning": true
+                    // "ngrok-skip-browser-warning": true
                 },
                 withCredentials: true,
             })
@@ -40,7 +40,7 @@ export const useBookStore = create<BookStore>((set) => ({
             .get(`${API_ENDPOINT}/api/book/${id}`, {
                 headers: {
                     "Authorization": `Bearer ${token}`,
-                    "ngrok-skip-browser-warning": true,
+                    // "ngrok-skip-browser-warning": true,
                 },
                 withCredentials: true,
             })
