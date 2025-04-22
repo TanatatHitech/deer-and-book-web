@@ -3,7 +3,7 @@ import useViewModel from './ViewModel';
 import { useNavigate } from 'react-router-dom';
 
 const BookDetailsView: FC = () => {
-    const { id, bookDetails, handleOpenApp } = useViewModel();
+    const { id, bookDetails, handleOpenPDF, handleOpenVideo } = useViewModel();
     const navigate = useNavigate();
 
     const navigateToHome = () => {
@@ -102,16 +102,17 @@ const BookDetailsView: FC = () => {
                         {/* Buttons */}
                         <div className="flex justify-between items-center mt-10 mb-4">
                             {/* Watch Video */}
-                            <button
-                                className="flex items-center space-x-2 text-[#864CFC] font-semibold bg-white border border-gray-400 rounded-full px-4 py-2 shadow-none"
-                                onClick={() => handleOpenApp()}
-                            >
-                                <img style={{ height: 20, width: 20 }} className="cursor-pointer" src="/assets/images/icon/play-button-icon.png" alt="play-button-icon"></img>
-                                <span>Watch Video</span>
-                            </button>
-
+                            {bookDetails.full_video_path && (
+                                <button
+                                    className="flex items-center space-x-2 text-[#864CFC] font-semibold bg-white border border-gray-400 rounded-full px-4 py-2 shadow-none"
+                                    onClick={() => handleOpenVideo()}
+                                >
+                                    <img style={{ height: 20, width: 20 }} className="cursor-pointer" src="/assets/images/icon/play-button-icon.png" alt="play-button-icon"></img>
+                                    <span>Watch Video</span>
+                                </button>
+                            )}
                             {/* Read Button */}
-                            <button className="px-6 py-2 bg-gradient-to-r from-[#B347FD] to-[#7B77F2] text-white font-bold rounded-full shadow-lg" onClick={() => handleOpenApp()}>
+                            <button className="px-6 py-2 bg-gradient-to-r from-[#B347FD] to-[#7B77F2] text-white font-bold rounded-full shadow-lg" onClick={() => handleOpenPDF()}>
                                 Read
                             </button>
                         </div>
