@@ -8,6 +8,7 @@ export interface BookStore {
     error: string | null;
     getAllBooks: () => Promise<{ success: boolean; data?: any[] }>;
     getBookById: (id: string) => Promise<{ success: boolean; data?: any }>;
+    submitReview: (reviewData: { bookId: string; comment: string; rating: number }) => Promise<{ success: boolean; data?: any }>;
     setBooks: (books: any[]) => void;
 }
 
@@ -19,7 +20,7 @@ export const useBookStore = create<BookStore>((set) => ({
         return axios
             .get(`${API_ENDPOINT}/api/books`, {
                 headers: {
-                    "Authorization": `Bearer ${token}`,
+                    Authorization: `Bearer ${token}`,
                     // "ngrok-skip-browser-warning": true
                 },
                 withCredentials: true,
@@ -39,7 +40,7 @@ export const useBookStore = create<BookStore>((set) => ({
         return axios
             .get(`${API_ENDPOINT}/api/book/${id}`, {
                 headers: {
-                    "Authorization": `Bearer ${token}`,
+                    Authorization: `Bearer ${token}`,
                     // "ngrok-skip-browser-warning": true,
                 },
                 withCredentials: true,
@@ -50,6 +51,27 @@ export const useBookStore = create<BookStore>((set) => ({
             .catch((error) => {
                 set({ error: error?.response?.data.message ?? error.message });
                 return { success: false };
+            });
+    },
+    submitReview: async (reviewData) => {
+        const token = localStorage.getItem('token');
+        return axios
+            .post(`${API_ENDPOINT}/api/review`, reviewData, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                withCredentials: true,
+            })
+            .then((response) => {
+                return { success: true, data: response.data };
+            })
+            .catch((error) => {
+                const errorMessage = error?.response?.data?.error || error?.message || 'An error occurred';
+                set({ error: errorMessage });
+                return {
+                    success: false,
+                    data: error?.response?.data, // Return the full error data object
+                };
             });
     },
     setBooks: (books) => set({ books }),

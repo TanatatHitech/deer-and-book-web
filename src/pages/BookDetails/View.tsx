@@ -1,9 +1,26 @@
 import { Fragment, type FC } from 'react';
 import useViewModel from './ViewModel';
 import { useNavigate } from 'react-router-dom';
+import RatingModal from '../../components/RatingModal';
 
 const BookDetailsView: FC = () => {
-    const { id, bookDetails, handleOpenPDF, handleOpenVideo } = useViewModel();
+    const {
+        id,
+        bookDetails,
+        handleOpenPDF,
+        handleOpenVideo,
+        // Rating modal
+        showRatingModal,
+        openRatingModal,
+        closeRatingModal,
+        reviewData,
+        handleRatingChange,
+        handleCommentChange,
+        handleSubmitReview,
+        isSubmitting,
+        submitError,
+        submitSuccess,
+    } = useViewModel();
     const navigate = useNavigate();
 
     const navigateToHome = () => {
@@ -48,11 +65,47 @@ const BookDetailsView: FC = () => {
                         <div className="flex justify-center">
                             <img src={`https://deerandbook.com/${bookDetails.cover_image}`} alt="Book Cover" className="w-40 h-56 object-cover rounded-lg" />
                         </div>
+                        {/* Rating */}
+                        <div className="flex flex-row justify-center items-center mt-3 gap-2">
+                            {/* Current Rating Display */}
+                            <div className="flex items-center">
+                                <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <span className="ml-2 text-sm font-medium text-gray-600">{bookDetails.rating > 0 ? bookDetails.rating.toFixed(1) : '0.0'}</span>
+                            </div>
 
+                            {/* Divider */}
+                            <div className="h-5 border-l border-gray-300"></div>
+
+                            {/* Rate Book Button */}
+                            <div
+                                className="flex items-center space-x-2 text-white bg-gradient-to-r from-[#B347FD] to-[#7B77F2] font-semibold cursor-pointer rounded-full px-2 py-1"
+                                onClick={openRatingModal}
+                            >
+                                <span>Rate book</span>
+                            </div>
+                        </div>
                         {/* Title and Author */}
                         <h3 className="text-center text-lg font-bold mt-4 bg-gradient-to-l from-[#7B77F2] to-[#B446FF] bg-clip-text text-transparent">{bookDetails.book_name}</h3>
                         <p className="text-center font-semi-bold text-[#B1B1B1]">Author by {bookDetails.author_name}</p>
-
+                        {/* Buttons */}
+                        <div className="flex justify-between items-center mt-2 mb-4">
+                            {/* Watch Video */}
+                            {bookDetails.full_video_path && (
+                                <button
+                                    className="flex items-center space-x-2 text-white font-semibold bg-gradient-to-r from-[#B347FD] to-[#7B77F2] border border-gray-400 rounded-full px-4 py-2 shadow-none"
+                                    onClick={() => handleOpenVideo()}
+                                >
+                                    <img style={{ height: 20, width: 20 }} className="cursor-pointer" src="/assets/images/icon/play-button-icon.png" alt="play-button-icon"></img>
+                                    <span>Watch Video</span>
+                                </button>
+                            )}
+                            {/* Read Button */}
+                            <button className="px-6 py-2 bg-gradient-to-r from-[#B347FD] to-[#7B77F2] text-white font-bold rounded-full shadow-lg" onClick={() => handleOpenPDF()}>
+                                Read
+                            </button>
+                        </div>
                         {/* Category Tag */}
                         <div className="flex justify-start mt-2">
                             <span
@@ -64,11 +117,9 @@ const BookDetailsView: FC = () => {
                                 # {bookDetails.book_category_name}
                             </span>
                         </div>
-
                         {/* Book Overview */}
                         <h4 className="text-black font-bold mt-6">Book Overview</h4>
                         <p className="text-[#979797] text-sm mt-2 font-semibold">{bookDetails.description || 'ไม่พบข้อมูลหนังสือ'}</p>
-
                         {/* Book Info */}
                         <div className="grid grid-cols-2 gap-4 mt-4 text-sm">
                             <div>
@@ -98,27 +149,22 @@ const BookDetailsView: FC = () => {
                                 <p className="text-[#979797] font-medium">{bookDetails.file_size || 'ไม่พบข้อมูล'} MB.</p>
                             </div>
                         </div>
-
-                        {/* Buttons */}
-                        <div className="flex justify-between items-center mt-10 mb-4">
-                            {/* Watch Video */}
-                            {bookDetails.full_video_path && (
-                                <button
-                                    className="flex items-center space-x-2 text-[#864CFC] font-semibold bg-white border border-gray-400 rounded-full px-4 py-2 shadow-none"
-                                    onClick={() => handleOpenVideo()}
-                                >
-                                    <img style={{ height: 20, width: 20 }} className="cursor-pointer" src="/assets/images/icon/play-button-icon.png" alt="play-button-icon"></img>
-                                    <span>Watch Video</span>
-                                </button>
-                            )}
-                            {/* Read Button */}
-                            <button className="px-6 py-2 bg-gradient-to-r from-[#B347FD] to-[#7B77F2] text-white font-bold rounded-full shadow-lg" onClick={() => handleOpenPDF()}>
-                                Read
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
+
+            {/* Rating Modal */}
+            <RatingModal
+                showRatingModal={showRatingModal}
+                closeRatingModal={closeRatingModal}
+                reviewData={reviewData}
+                handleRatingChange={handleRatingChange}
+                handleCommentChange={handleCommentChange}
+                handleSubmitReview={handleSubmitReview}
+                isSubmitting={isSubmitting}
+                submitError={submitError}
+                submitSuccess={submitSuccess}
+            />
         </Fragment>
     );
 };
