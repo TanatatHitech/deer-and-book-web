@@ -7,17 +7,31 @@ import { useThemeStore } from '@/store/theme';
 
 export const categories = [
     { id: 1, name: 'All Books', icon: '/assets/images/icon/all-cat.png' },
-    { id: 11, name: 'Magazine', icon: '/assets/images/icon/magazine-icon.png' },
-    { id: 2, name: 'Boy Love', icon: '/assets/images/icon/boy-love-icon.png' },
-    { id: 3, name: 'Girl Love', icon: '/assets/images/icon/girl-love-icon.png' },
-    { id: 4, name: 'Travel', icon: '/assets/images/icon/travel-icon.png' },
-    { id: 5, name: 'Healthy', icon: '/assets/images/icon/healthy-icon.png' },
-    { id: 6, name: 'Food & Bev', icon: '/assets/images/icon/food-and-drinks-icon.png' },
-    { id: 7, name: 'Comic', icon: '/assets/images/icon/comics-icon.png' },
-    { id: 8, name: 'Learning', icon: '/assets/images/icon/learning-icon.png' },
-    { id: 9, name: 'Business', icon: '/assets/images/icon/business-icon.png' },
-    { id: 10, name: 'Life Style', icon: '/assets/images/icon/lifestyle-icon.png' },
+    { id: 11, name: 'Magazine', icon: '/assets/images/icon/magazine-icon-new.png' },
+    { id: 2, name: 'Boy Love', icon: '/assets/images/icon/boy-love-icon-new.png' },
+    { id: 3, name: 'Girl Love', icon: '/assets/images/icon/girl-love-icon-new.png' },
+    { id: 4, name: 'Travel', icon: '/assets/images/icon/travel-icon-new.png' },
+    { id: 5, name: 'Healthy', icon: '/assets/images/icon/healthy-icon-new.png' },
+    { id: 6, name: 'Food & Bev', icon: '/assets/images/icon/food-and-drinks-icon-new.png' },
+    { id: 7, name: 'Comic', icon: '/assets/images/icon/comics-icon-new.png' },
+    { id: 8, name: 'Learning', icon: '/assets/images/icon/learning-icon-new.png' },
+    { id: 9, name: 'Business', icon: '/assets/images/icon/business-icon-new.png' },
+    { id: 10, name: 'Life Style', icon: '/assets/images/icon/lifestyle-icon-new.png' },
 ];
+
+// export const categories = [
+//     { id: 1, name: 'All Books', icon: '/assets/images/icon/all-cat.png' },
+//     { id: 11, name: 'Magazine', icon: '/assets/images/icon/magazine-icon.png' },
+//     { id: 2, name: 'Boy Love', icon: '/assets/images/icon/boy-love-icon.png' },
+//     { id: 3, name: 'Girl Love', icon: '/assets/images/icon/girl-love-icon.png' },
+//     { id: 4, name: 'Travel', icon: '/assets/images/icon/travel-icon.png' },
+//     { id: 5, name: 'Healthy', icon: '/assets/images/icon/healthy-icon.png' },
+//     { id: 6, name: 'Food & Bev', icon: '/assets/images/icon/food-and-drinks-icon.png' },
+//     { id: 7, name: 'Comic', icon: '/assets/images/icon/comics-icon.png' },
+//     { id: 8, name: 'Learning', icon: '/assets/images/icon/learning-icon.png' },
+//     { id: 9, name: 'Business', icon: '/assets/images/icon/business-icon.png' },
+//     { id: 10, name: 'Life Style', icon: '/assets/images/icon/lifestyle-icon.png' },
+// ];
 
 const ViewModel = () => {
     const { setShowHeader, setTitle, setupBackButton } = useContext(MobileHeaderContext);
