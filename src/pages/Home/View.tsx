@@ -107,7 +107,7 @@ const HomeView: FC = () => {
                                     <img loading="lazy" src={`https://deerandbook.com/${book.cover_image}`} alt={book.book_category_name} className=" w-full h-40 object-contain mb-2" />
                                     <hr className="w-full border-[1.5px] border-gray-400 mt-0 mb-2" />
                                     <p className="text-center font-semibold line-clamp-2 h-10">{book.book_name}</p>
-                                    <p className="text-center text-xs line-clamp-1 h-5 mt-1 text-[#9c60f5]">By : {book.book_author_name}</p>
+                                    <p className="text-center text-xs line-clamp-1 h-4 mt-1 text-[#9c60f5]">By : {book.book_author_name}</p>
                                     <hr className="w-full border-[1.5px] border-gray-400 mt-1 mb-0" />
                                 </div>
                             ))}
