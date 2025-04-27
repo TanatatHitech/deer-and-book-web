@@ -57,7 +57,7 @@ const RatingModal: FC<RatingModalProps> = ({
         if (submitSuccess) {
             Swal.fire({
                 title: '<span class="">Congratulations!</span>',
-                html: '<p class="text-green-600">You got 5 points by reviewing this book.<br/>Please check your profile.</p>',
+                html: '<p class="text-green-600">Review Submitted!<br/>Thank you for your reviewed.</p>',
                 icon: 'success',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#B347FD',
