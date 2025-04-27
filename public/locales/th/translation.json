@@ -6,7 +6,53 @@
         "notification": "แจ้งเตือน",
         "profile": "โปรไฟล์"
     },
-    "home": {},
+    "home": {
+        "logo": "โลโก้",
+        "categories": "หมวดหมู่",
+        "searchByName": "ค้นหาด้วยชื่อ",
+        "searchIcon": "ไอคอนค้นหา",
+        "noBooks": "ไม่พบหนังสือที่ค้นหา",
+        "switchLanguage": "เปลี่ยนเป็นภาษาอังกฤษ"
+    },
+    "contact": {
+        "title": "ติดต่อเรา",
+        "facebook": "เฟซบุ๊ก",
+        "line": "ไลน์",
+        "tel": "โทรศัพท์"
+    },
+    "bookDetail": {
+        "title": "รายละเอียดหนังสือ",
+        "closeButton": "ปุ่มปิด",
+        "shareButton": "ปุ่มแชร์",
+        "coverAlt": "ปกหนังสือ",
+        "rateBook": "ให้คะแนน",
+        "authorBy": "เขียนโดย",
+        "watchVideo": "ดูวิดีโอ",
+        "playButton": "ปุ่มเล่น",
+        "read": "อ่าน",
+        "overview": "เกี่ยวกับหนังสือ",
+        "noDescription": "ไม่พบข้อมูลหนังสือ",
+        "publisher": "สำนักพิมพ์",
+        "noAuthor": "ไม่พบชื่อผู้เขียน",
+        "modelName": "ชื่อรุ่น",
+        "noModel": "ไม่พบข้อมูลรุ่น",
+        "page": "จำนวนหน้า",
+        "noPage": "ไม่พบข้อมูลหน้า",
+        "update": "อัปเดต",
+        "releaseDate": "วันที่เผยแพร่",
+        "fileSize": "ขนาดไฟล์",
+        "noInfo": "ไม่พบข้อมูล"
+    },
+    "profile": {
+        "personalInformation": "ข้อมูลส่วนตัว",
+        "displayName": "ชื่อที่แสดง",
+        "email": "อีเมล",
+        "baht": "บาท",
+        "points": "คะแนน",
+        "logout": "ออกจากระบบ",
+        "topUp": "เติมเงิน",
+        "contactUs": "มีปัญหา? ติดต่อเรา"
+    },
     "myLand": {
         "title": "แปลงของฉัน"
     },

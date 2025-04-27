@@ -6,7 +6,53 @@
         "notification": "Notification",
         "profile": "Profile"
     },
-    "home": {},
+    "home": {
+        "logo": "Logo",
+        "categories": "Categories",
+        "searchByName": "Search by name",
+        "searchIcon": "Search icon",
+        "noBooks": "No books found",
+        "switchLanguage": "Switch to Thai"
+    },
+    "contact": {
+        "title": "Contact Us",
+        "facebook": "Facebook",
+        "line": "Line",
+        "tel": "Tel"
+    },
+    "bookDetail": {
+        "title": "Book Detail",
+        "closeButton": "Close button",
+        "shareButton": "Share button",
+        "coverAlt": "Book Cover",
+        "rateBook": "Rate book",
+        "authorBy": "Author by",
+        "watchVideo": "Watch Video",
+        "playButton": "Play button",
+        "read": "Read",
+        "overview": "Book Overview",
+        "noDescription": "No book description available",
+        "publisher": "Publisher",
+        "noAuthor": "No author information",
+        "modelName": "Model name",
+        "noModel": "No model information",
+        "page": "Page",
+        "noPage": "No page information",
+        "update": "Update",
+        "releaseDate": "Release date",
+        "fileSize": "File size",
+        "noInfo": "No information"
+    },
+    "profile": {
+        "personalInformation": "Personal Information",
+        "displayName": "Display Name",
+        "email": "Email",
+        "baht": "baht",
+        "points": "points",
+        "logout": "Logout",
+        "topUp": "Top Up",
+        "contactUs": "Have a problem? contact us"
+    },
     "myLand": {
         "title": "My Land"
     },
@@ -123,7 +169,6 @@
     "date_and_range_picker": "Date & Range Picker",
     "clipboard": "Clipboard",
     "user_and_pages": "User And Pages",
-    "profile": "Profile",
     "account_settings": "Account Settings",
     "knowledge_base": "Knowledge Base",
     "contact_form": "Contact Form",
