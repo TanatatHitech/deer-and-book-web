@@ -83,7 +83,7 @@ const HomeView: FC = () => {
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mx-auto max-w-5xl">
                             {filteredBooks.map((book) => (
                                 <div key={book.id} className="flex flex-col items-center p-3 bg rounded-lg sm:h-60" onClick={() => navigateTo(book.id)}>
-                                    <img src={`https://deerandbook.com/${book.cover_image}`} alt={book.book_category_name} className="mt-2 w-full h-40 rounded-md object-contain" />
+                                    <img loading="lazy" src={`https://deerandbook.com/${book.cover_image}`} alt={book.book_category_name} className="mt-2 w-full h-40 rounded-md object-contain" />
                                     <hr className="w-full border-1 border-gray-300 mt-0 mb-2" />
                                     <p className="text-center font-semibold line-clamp-2 h-10">{book.book_name}</p>
                                     <hr className="w-full border-1 border-gray-300 mt-2 mb-0" />
