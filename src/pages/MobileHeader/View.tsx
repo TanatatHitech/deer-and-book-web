@@ -1,11 +1,13 @@
-import { type FC, Fragment } from 'react';
+import { type FC, Fragment, useContext } from 'react';
 import IconArrowLeft from '@/components/Icon/IconArrowLeft';
-
+import { LanguageToggleButton } from '@/Context/LanguageToggle';
 import useViewModel from './ViewModel';
 import { clsx } from '@mantine/core';
+import { MobileHeaderContext } from '@/Context/MobileHeader';
 
 const MobileHeader: FC = () => {
     const { title, showHeader, showBackButton, showCustomRightComponent, backFunction } = useViewModel();
+    const { toggleAppLanguage, currentLanguage } = useContext(MobileHeaderContext);
 
     return (
         <Fragment>
@@ -16,9 +18,10 @@ const MobileHeader: FC = () => {
                 })}
             >
                 <div className="">
-                    <div className="relative bg-crop-primary flex w-full items-center justify-between px-5 py-2.5 h-16">
-                        <div className="horizontal-logo flex lg:hidden justify-between items-center">
-                            <ul className="flex items-center space-x-2 rtl:space-x-reverse ">
+                    <div className="relative bg-crop-primary flex w-full items-center justify-center px-5 py-2.5 h-16">
+                        {/* Left Section */}
+                        <div className="absolute left-5 horizontal-logo flex lg:hidden">
+                            <ul className="flex items-center space-x-2 rtl:space-x-reverse">
                                 {showBackButton && (
                                     <li>
                                         <div
@@ -32,16 +35,14 @@ const MobileHeader: FC = () => {
                             </ul>
                         </div>
 
-                        <div
-                            className={clsx('font-bold text-md text-white', {
-                                '-ml-8': showBackButton && !showCustomRightComponent,
-                                '-mr-5': showCustomRightComponent,
-                            })}
-                        >
-                            {title}
-                        </div>
+                        {/* Center Title */}
+                        <div className="font-bold text-md text-white text-center">{title}</div>
 
-                        <div>{showCustomRightComponent}</div>
+                        {/* Right Section */}
+                        <div className="absolute right-5 flex items-center gap-2">
+                            {showCustomRightComponent && <div>{showCustomRightComponent}</div>}
+                            {!showCustomRightComponent && <LanguageToggleButton />}
+                        </div>
                     </div>
                 </div>
             </header>
