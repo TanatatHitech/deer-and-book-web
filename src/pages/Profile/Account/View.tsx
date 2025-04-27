@@ -66,9 +66,18 @@ const ProfileAccountView: FC = () => {
                         </div>
                         <div className="col-span-12">
                             <div className=" p-0 py-1 mx-2">
-                                <button className="flex items-center space-x-2 text-white font-semibold bg-gradient-to-r from-[#B347FD] to-[#7B77F2] border border-gray-400 rounded-full px-4 py-2 shadow-none w-[100%]">
+                                <a
+                                    href="https://lin.ee/SxV9RHp"
+                                    target="_blank"
+                                    className="flex items-center justify-center space-x-2 text-white font-semibold bg-gradient-to-r from-[#B347FD] to-[#7B77F2] border border-gray-400 rounded-full px-4 py-2 shadow-none w-[100%] text-center"
+                                >
                                     Top Up
-                                </button>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="https://lin.ee/SxV9RHp" target="_blank" className="mt-2 flex text-xs underline items-center justify-center space-x-2 text-[#B347FD]  w-[100%] text-center">
+                                    Have a problem? contact us
+                                </a>
                             </div>
                         </div>
                     </div>

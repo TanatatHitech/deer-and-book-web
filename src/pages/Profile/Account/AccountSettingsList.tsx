@@ -26,12 +26,12 @@ const AccountSettingsList: FC<{ onInformationClick: () => void; navigate: (path:
             </div>
             <div className="col-span-12">
                 <div className="flex flex-row items-center mx-5">
-                    <IconCreditCard className=" fill-crop-quinary mr-2" /> : {profileDetails?.remaining_credit ?? '-'} บาท
+                    <IconCreditCard className=" fill-crop-quinary mr-2" /> : {profileDetails?.remaining_credit ?? '-'} baht
                 </div>
             </div>
             <div className="col-span-12">
                 <div className="flex flex-row items-center mx-5">
-                    <IconStar className=" fill-crop-quinary mr-2" /> : {profileDetails?.point ?? '-'} พ้อยต์
+                    <IconStar className=" fill-crop-quinary mr-2" /> : {profileDetails?.point ?? '-'} points
                 </div>
             </div>
             {/* <div className="col-span-12" onClick={onInformationClick}>
