@@ -50,7 +50,9 @@ const ProfileAccountView: FC = () => {
                             <div className="min-w-full flex flex-col items-center justify-center gap-3 mb-2">
                                 <ProfilePicture
                                     profilePic={profileDetails?.profile_image ? `https://deerandbook.com${profileDetails?.profile_image}` : 'https://deerandbook.com/img/default-user.png'}
-                                    onChange={handleProfilePicChange} triggerFileInput={triggerFileInput} />
+                                    onChange={handleProfilePicChange}
+                                    triggerFileInput={triggerFileInput}
+                                />
                                 <div className="font-semibold">{profile.firstName}</div>
                             </div>
                             <div className="border border-gray-200 text-gray-500 rounded-lg bg-white p-0 py-1 mx-2">
@@ -62,41 +64,16 @@ const ProfileAccountView: FC = () => {
                                 )}
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            {/* Desktop Version */}
-            {/* <div className="hidden lg:block">
-                <div className="pb-20 lg:pb-0">
-                    <div className="grid grid-cols-12 gap-5">
-                        <div className="panel col-span-12">
-                            <span className="text-crop-primary font-semibold text-lg">ตั้งค่าบัญชีผู้ใช้</span>
-                            <div className="grid grid-cols-12 gap-5 mt-2">
-                                <div className="md:col-span-4 xl:col-span-3 panel ">
-                                    <AccountSettingsList onInformationClick={handleInformationClick} navigate={navigate} />
-                                </div>
-                                <div className="md:col-span-8 xl:col-span-9 panel">
-                                    <div className="grid grid-cols-12 gap-5">
-                                        <div className="col-span-4">
-                                            <div
-                                                className="min-w-full flex flex-col items-center justify-start gap-3 mb-2 h-full w-full bg-contain bg-no-repeat bg-top"
-                                                style={{ backgroundImage: 'url(/assets/crop/profile-bg.png)' }}
-                                            >
-                                                <div className="relative w-auto mt-5">
-                                                    <ProfilePicture profilePic={profilePic} onChange={handleProfilePicChange} triggerFileInput={triggerFileInput} />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-span-8 px-7 mt-5">
-                                            <InformationSettingForm profile={profile} />
-                                        </div>
-                                    </div>
-                                </div>
+                        <div className="col-span-12">
+                            <div className=" p-0 py-1 mx-2">
+                                <button className="flex items-center space-x-2 text-white font-semibold bg-gradient-to-r from-[#B347FD] to-[#7B77F2] border border-gray-400 rounded-full px-4 py-2 shadow-none w-[100%]">
+                                    Top Up
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
         </Fragment>
     );
 };
