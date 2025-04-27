@@ -85,7 +85,7 @@ const ViewModel = () => {
     const setupPage = () => {
         setPageTitle(`Account `);
         setShowHeader(true);
-        setTitle('โปรไฟล์');
+        setTitle('User');
         setupBackButton(true, () => {
             setupBackButton(false);
             navigate('/home');

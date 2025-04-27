@@ -15,6 +15,7 @@ import IconPaperclip from '@/components/Icon/IconPaperclip';
 import IconImagePlaceHolder from '@/components/Icon/IconImagePlaceholder';
 import IconPlusCircle from '@/components/Icon/IconPlusCircle';
 import IconLogout from '@/components/Icon/IconLogout';
+import IconShoppingCart from '@/components/Icon/IconShoppingCart';
 
 const BottomNavigationBar: FC = () => {
     const { t, isActive } = useViewModel();
@@ -62,6 +63,12 @@ const BottomNavigationBar: FC = () => {
                             >
                                 User
                             </span>
+                        </button>
+                    </Link>{' '}
+                    <Link to="https://deerandbook.com/" target="_blank" className="inline-flex flex-col h-full w-full ">
+                        <button type="button" className="h-full w-full inline-flex flex-col items-center justify-center group">
+                            <IconShoppingCart className="h-8 w-8 mb-1 text-white" />
+                            <span className="mt-1 text-gray-300">Buy Bookes</span>
                         </button>
                     </Link>
                     <Link to="#" onClick={onLogout} className="inline-flex flex-col h-full w-full">

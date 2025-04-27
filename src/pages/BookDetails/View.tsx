@@ -94,7 +94,7 @@ const BookDetailsView: FC = () => {
                             {/* Watch Video */}
                             {bookDetails.full_video_path && (
                                 <button
-                                    className="flex items-center space-x-2 text-white font-semibold bg-gradient-to-r from-[#B347FD] to-[#7B77F2] border border-gray-400 rounded-full px-4 py-2 shadow-none"
+                                    className="flex items-center space-x-2 text-white font-semibold bg-gradient-to-r from-[#B347FD] to-[#7B77F2] border  rounded-full px-4 py-2 shadow-none"
                                     onClick={() => handleOpenVideo()}
                                 >
                                     <img style={{ height: 20, width: 20 }} className="cursor-pointer" src="/assets/images/icon/play-button-icon.png" alt="play-button-icon"></img>
@@ -106,7 +106,8 @@ const BookDetailsView: FC = () => {
                                 Read
                             </button>
                         </div>
-                        {/* Category Tag */}
+                        {/* Book Overview */}
+                        <h4 className="text-black font-bold mt-4">Book Overview</h4> {/* Category Tag */}
                         <div className="flex justify-start mt-2">
                             <span
                                 className="px-4 py-1 text-xs font-semibold text-[#864CFC] bg-[#E5D4FD] rounded-md"
@@ -117,8 +118,6 @@ const BookDetailsView: FC = () => {
                                 # {bookDetails.book_category_name}
                             </span>
                         </div>
-                        {/* Book Overview */}
-                        <h4 className="text-black font-bold mt-6">Book Overview</h4>
                         <p className="text-[#979797] text-sm mt-2 font-semibold">{bookDetails.description || 'ไม่พบข้อมูลหนังสือ'}</p>
                         {/* Book Info */}
                         <div className="grid grid-cols-2 gap-4 mt-4 text-sm">

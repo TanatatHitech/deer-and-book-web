@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import Swal from 'sweetalert2';
 
 interface StarRatingProps {
     rating: number;
@@ -52,6 +53,20 @@ const RatingModal: FC<RatingModalProps> = ({
     submitError,
     submitSuccess,
 }) => {
+    useEffect(() => {
+        if (submitSuccess) {
+            Swal.fire({
+                title: '<span class="">Congratulations!</span>',
+                html: '<p class="text-green-600">You got 5 points by reviewing this book.<br/>Please check your profile.</p>',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#B347FD',
+            }).then(() => {
+                closeRatingModal();
+            });
+        }
+    }, [submitSuccess, closeRatingModal]);
+
     if (!showRatingModal) return null;
 
     return (
