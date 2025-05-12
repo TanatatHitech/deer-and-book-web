@@ -28,36 +28,36 @@ const ContactModal: FC<ContactModalProps> = ({ isOpen, onClose }) => {
 
                 <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                        <div className="w-7 h-7 rounded-full">
+                        <div className="w-10 h-10 rounded-full">
                             <img src="/assets//images/social/facebook.png" alt="Facebook" className="" />
                         </div>
                         <div>
                             <div className="text-sm text-gray-500">{t('contact.facebook')}</div>
-                            <a href="https://www.facebook.com/deerandbookofficial" className="font-medium">
+                            <a href="https://www.facebook.com/deerandbookofficial" className="font-medium btn bg-[#4BC3EF] hover:opactiy-80 text-white w-40">
                                 Deer and Book
                             </a>
                         </div>
                     </div>
 
                     <div className="flex items-center gap-3">
-                        <div className="w-7 h-7 rounded-full">
+                        <div className="w-10 h-10 rounded-full">
                             <img src="/assets//images/social/line.png" alt="Facebook" className="" />
                         </div>
                         <div>
                             <div className="text-sm text-gray-500">{t('contact.line')}</div>
-                            <a href="https://lin.ee/SxV9RHp" className="font-medium">
-                                @xjc1676i
+                            <a href="https://lin.ee/SxV9RHp" className="font-medium btn bg-[#91DD5A] text-white hover:opacity-80 w-40">
+                                @deerandbook
                             </a>
                         </div>
                     </div>
 
                     <div className="flex items-center gap-3">
-                        <div className="w-7 h-7 rounded-full">
+                        <div className="w-10 h-10 rounded-full">
                             <img src="/assets//images/social/tel.png" alt="Facebook" className="" />
                         </div>
                         <div>
                             <div className="text-sm text-gray-500">{t('contact.tel')}</div>
-                            <a href="tel:0652949492" className="font-medium">
+                            <a href="tel:0652949492" className="font-medium btn bg-[#F8C96D] text-white hover:opacity-80 w-40">
                                 065 294 9492
                             </a>
                         </div>

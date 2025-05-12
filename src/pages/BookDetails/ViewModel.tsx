@@ -46,8 +46,8 @@ const ViewModel = () => {
 
     const handleOpenVideo = () => {
         const link = document.createElement('a');
-        // link.href = `${AppDeepLink}&video=${bookDetails.full_video_path}`;
-        link.href = `${AppDeepLink}&video=https://1drv.ms/v/c/0f29360961a2f400/UQQA9KJhCTYpIIAPzQMAAAAAAPvdGXStfBdjzT4`;
+        link.href = `${AppDeepLink}&video=${bookDetails.full_video_path}`;
+        // link.href = `${AppDeepLink}&video=https://1drv.ms/v/c/0f29360961a2f400/UQQA9KJhCTYpIIAPzQMAAAAAAPvdGXStfBdjzT4`;
         link.style.display = 'none';
         document.body.appendChild(link);
         link.click();
